@@ -2,8 +2,6 @@ package com.devcom.discovertnproject.services;
 
 import com.devcom.discovertnproject.entities.Utilisateur;
 import com.devcom.discovertnproject.tools.MaConnexion;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,22 +10,14 @@ import java.util.List;
 public class UtilisateurService implements IService<Utilisateur>{
     Connection cnx = MaConnexion.getInstance().getCnx();
 
-    public int existe(Utilisateur u) throws SQLException {
-        Statement s = cnx.createStatement();
-        ResultSet rs = s.executeQuery("SELECT COUNT(*) from utilisateur WHERE login_utilisateur = '" + u.getLoginUtilisateur() + "'");
-        int size = 0;
-        rs.next();
-        size = rs.getInt(   1);
-        return size;
-    }
+
 
     @Override
     public void ajouter(Utilisateur utilisateur) throws SQLException {
         String query = "INSERT INTO UTILISATEUR(nom_utilisateur,prenom_utilisateur,email_utilisateur,login_utilisateur," +
                 "mdp_utilisateur,image_utilisateur,rank_utilisateur,telephone_utilisateur,adresse_utilisateur) VALUES(?,?,?,?,?,?,?,?,?)";
 
-        int x = existe(utilisateur);
-        if (x == 0) {
+
             try {
                 PreparedStatement ste = cnx.prepareStatement(query);
                 ste.setString(1, utilisateur.getNomUtilisateur());
@@ -45,10 +35,6 @@ public class UtilisateurService implements IService<Utilisateur>{
                 System.out.println(e.getMessage());
             }
         }
-        else {
-            System.out.println("user already exists");
-        }
-    }
 
     @Override
     public List<Utilisateur> afficher() {
