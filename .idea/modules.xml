@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DiscoverTNProject.iml" filepath="$PROJECT_DIR$/DiscoverTNProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DevCom.iml" filepath="$PROJECT_DIR$/DevCom.iml" />
     </modules>
   </component>
 </project>

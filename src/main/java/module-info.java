@@ -1,13 +1,26 @@
-module com.devcom.discovertnproject {
+module com.example.devcom {
+
     requires javafx.controls;
     requires javafx.fxml;
-
-    requires validatorfx;
-    requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires org.apache.commons.codec;
+    requires commons.validator;
 
-    opens com.devcom.discovertnproject to javafx.fxml;
-    exports com.devcom.discovertnproject;
-    exports com.devcom.discovertnproject.controllers;
-    opens com.devcom.discovertnproject.controllers to javafx.fxml;
+    requires itextpdf;
+    requires virtualizedfx;
+    requires org.slf4j.simple;
+    requires twilio;
+    requires org.slf4j;
+    requires javafx.graphics;
+    requires javafx.base;
+    requires java.mail;
+    requires restfb;
+
+
+    exports Controllers;
+    exports Entities;
+    opens Controllers to javafx.fxml;
+    opens Entities to javafx.fxml;
+
+
 }
