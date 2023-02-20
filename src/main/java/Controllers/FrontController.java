@@ -220,14 +220,17 @@ idimg.setFill(new ImagePattern(img));
         UtilisateurService us =new UtilisateurService();
         try{
             mesUtilisateurs = us.afficher();
-
-            for (Utilisateur usr : mesUtilisateurs) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/Views/UserCard.fxml"));
-                VBox cardBox = fxmlLoader.load();
-                UserCardController userCardController = fxmlLoader.getController();
-                userCardController.setDataUser(usr);
-                userCardLayout.getChildren().add(cardBox);
+            Utilisateur u = new Utilisateur();
+            u = (Utilisateur) UserSession.INSTANCE.get("user");
+            if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2){
+                for (Utilisateur usr : mesUtilisateurs) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/Views/UserCard.fxml"));
+                    VBox cardBox = fxmlLoader.load();
+                    UserCardController userCardController = fxmlLoader.getController();
+                    userCardController.setDataUser(usr);
+                    userCardLayout.getChildren().add(cardBox);
+                }
             }
         }
         catch (Exception e){
