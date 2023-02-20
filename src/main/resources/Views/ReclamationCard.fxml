@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<VBox fx:id="vboxUser" alignment="CENTER" prefHeight="265.0" prefWidth="363.0" style="-fx-background-color: #131022;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ReclamationCardController">
+<VBox fx:id="vboxUser" alignment="CENTER" prefHeight="265.0" prefWidth="363.0" style="-fx-background-color: #131022;" xmlns="http://javafx.com/javafx/1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ReclamationCardController">
 <children>
     <HBox prefHeight="141.0" prefWidth="353.0" style="-fx-background-color: #131022;">
         <children>
