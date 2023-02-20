@@ -16,8 +16,8 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
       FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/Views/Login.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 600);
-        stage.setTitle("DevCom !");
-        Image icon = new Image(getClass().getResourceAsStream("/imgs/elliot.png"));
+        stage.setTitle("DiscoverTn !");
+        Image icon = new Image(getClass().getResourceAsStream("/imgs/logoDiscover.png"));
        stage.getIcons().add(icon);
         stage.setScene(scene);
 

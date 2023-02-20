@@ -7,8 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -87,6 +86,17 @@ public class ReclamationService implements IService<Reclamation>{
 
 
     }
+
+    @Override
+    public void modifier(Reclamation reclamation) {
+
+    }
+
+    @Override
+    public void supprimer(Reclamation reclamation) {
+
+    }
+
     public boolean CloseRec(String email)
     {
         String update = "UPDATE RECLAMATION set etat_reclamation='Replied' where email_utilisateur= '" + email + "'";
@@ -100,7 +110,7 @@ public class ReclamationService implements IService<Reclamation>{
             return false;
         }
     }
-    public boolean ContactUserReclam(String email,String body)
+    /*public boolean ContactUserReclam(String email,String body)
     {
         UtilisateurService us = new UtilisateurService();
         Utilisateur UserTo= new Utilisateur();
@@ -149,5 +159,5 @@ public class ReclamationService implements IService<Reclamation>{
     @Override
     public void supprimer(Reclamation reclamation) {
 
-    }
+    }*/
 }

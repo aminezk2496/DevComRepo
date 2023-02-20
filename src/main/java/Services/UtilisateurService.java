@@ -7,8 +7,7 @@ import javafx.collections.ObservableList;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
@@ -391,7 +390,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
         }
         return user;
     }
-    public boolean SendMail(Utilisateur user,String code )
+    /*public boolean SendMail(Utilisateur user,String code )
     {
         String password = "Testtest123";
         String from,to,host,sub,content;
@@ -483,7 +482,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
             return Code;
         }
         return "null";
-    }
+    }*/
     public boolean ChangePWD(Utilisateur user,String mdp)
     {
         String query="UPDATE utilisateur SET " +

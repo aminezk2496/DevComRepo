@@ -54,7 +54,7 @@ public class ReplyFormController {
     }
     @FXML
     void ReplyWithEmail(ActionEvent event) {
-        ReclamationService rs = new ReclamationService();
+       /* ReclamationService rs = new ReclamationService();
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
         String Email = (String) stage.getUserData();
@@ -62,7 +62,7 @@ public class ReplyFormController {
         if (rs.ContactUserReclam(Email,body))
         {
             stage.close();
-        }
+        }*/
     }
 
 }
