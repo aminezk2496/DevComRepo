@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GestionGererReclamationController">
+<children>
+    <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+        <children>
+            <Pane layoutX="626.0" layoutY="-1.0" prefHeight="94.0" prefWidth="370.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@../styles/style.css">
+                <children>
+                    <Label layoutX="139.0" layoutY="28.0" text="Reclamation" textFill="#fff600">
+                        <font>
+                            <Font size="26.0" />
+                        </font>
+                    </Label>
+                </children>
+            </Pane>
+            <VBox prefHeight="544.0" prefWidth="74.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                    <Pane prefHeight="79.0" prefWidth="74.0" style="-fx-background-radius: 15 0 15 15;">
+                        <children>
+                            <Button contentDisplay="TOP" layoutY="12.0" mnemonicParsing="false" onAction="#switchToMainFront" prefHeight="66.0" prefWidth="74.0" styleClass="button3" stylesheets="@../styles/style.css" text="MainPage" textFill="#a868a0">
+                                <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@../imgs/cat.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </children></Pane>
+                </children>
+            </VBox>
+            <AnchorPane layoutX="91.0" layoutY="84.0" prefHeight="531.0" prefWidth="886.0" style="-fx-background-color: #131022;" stylesheets="@../styles/style.css">
+                <children>
+                    <Label layoutX="31.0" layoutY="16.0" text="Gérer les" textFill="WHITE">
+                        <font>
+                            <Font size="26.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="138.0" layoutY="16.0" text="Reclamations" textFill="#fff600">
+                        <font>
+                            <Font size="26.0" />
+                        </font>
+                    </Label>
+                    <ImageView fx:id="imgArea" fitHeight="150.0" fitWidth="200.0" layoutX="599.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" />
+                    <Label fx:id="MessageUpdate" layoutX="528.0" layoutY="441.0" textFill="#fff600">
+                        <font>
+                            <Font size="26.0" />
+                        </font>
+                    </Label>
+                  <HBox fx:id="hboxRec" layoutY="54.0" prefHeight="474.0" prefWidth="904.0">
+                     <children>
+                        <ScrollPane fx:id="ScrollRec" prefHeight="474.0" prefWidth="954.0">
+                           <content>
+                              <GridPane fx:id="GridRec">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+                </children>
+            </AnchorPane>
+            <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../imgs/logo.png" />
+                </image>
+            </ImageView>
+            <Label layoutX="134.0" layoutY="29.0" text="Pidevers-Team" textFill="WHITE">
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+      <TextField fx:id="FindRec" layoutX="380.0" layoutY="34.0" onKeyTyped="#FindRec" prefHeight="19.0" prefWidth="204.0" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10; -fx-text-fill: FFFFFF;" />
+      <Label layoutX="288.0" layoutY="38.0" text="Rechercher" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+</children>
+</AnchorPane>
