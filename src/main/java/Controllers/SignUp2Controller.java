@@ -42,17 +42,18 @@ public class SignUp2Controller {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Upload File Path");
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("ALL FILES", "*.*")
+                new FileChooser.ExtensionFilter("ALL FILES", "*.*"),
+                new FileChooser.ExtensionFilter("IMAGE FILES", "*.jpg", "*.png", "*.gif")
         );
         File file = fileChooser.showOpenDialog(null);
         String DBPath = "C:\\xampp\\htdocs\\devcomimgupload\\"+user.getLoginUtilisateur()+".jpg";
         if (file != null) {
+
             // pickUpPathField it's your TextField fx:id
             FileInputStream Fsource = new FileInputStream(file.getAbsolutePath());
             FileOutputStream Fdestination = new FileOutputStream(DBPath);
             BufferedInputStream bin = new BufferedInputStream(Fsource);
             BufferedOutputStream bou = new BufferedOutputStream(Fdestination);
-            System.out.println(file.getAbsolutePath());
             Image img = new Image("file:"+file.getAbsolutePath());
             imgarea.setImage(img);
             int b=0;
@@ -77,7 +78,7 @@ public class SignUp2Controller {
         Stage stage = (Stage) node.getScene().getWindow();
         Utilisateur user = (Utilisateur) stage.getUserData();
         UtilisateurService us = new UtilisateurService();
-     //   us.SendMail(user,"null");
+        us.SendMail(user,"null");
         Parent root = FXMLLoader.load(getClass().getResource("/Views/SignUp3.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setUserData(user);

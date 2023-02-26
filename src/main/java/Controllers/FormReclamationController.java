@@ -65,10 +65,10 @@ public class FormReclamationController {
     @FXML
     void SubmitRec(ActionEvent event) throws SQLException {
         u = (Utilisateur) UserSession.INSTANCE.get("user");
-       reclamation.setEmail_utilisateur(emailUser.getText());
-       reclamation.setNom_utilisateur(nomUser.getText());
-       reclamation.setPrenom_utilisateur(prenomUser.getText());
-       reclamation.setDescription_reclamation(DescriptionUser.getText());
+        reclamation.setEmail_utilisateur(emailUser.getText());
+        reclamation.setNom_utilisateur(nomUser.getText());
+        reclamation.setPrenom_utilisateur(prenomUser.getText());
+        reclamation.setDescription_reclamation(DescriptionUser.getText());
         rs.addRec(reclamation,u.getIdUtilisateur());
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();

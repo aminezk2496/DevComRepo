@@ -15,6 +15,8 @@ module com.example.devcom {
     requires javafx.base;
     requires java.mail;
     requires restfb;
+    requires javafx.web;
+
 
 
     exports Controllers;

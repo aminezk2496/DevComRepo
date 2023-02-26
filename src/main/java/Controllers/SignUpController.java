@@ -100,37 +100,37 @@ public class SignUpController {
         }else
         {
 
-                Utilisateur utilisateur = new Utilisateur();
-                UtilisateurService us = new UtilisateurService();
-                utilisateur.setNomUtilisateur(nomTextField.getText());
-                utilisateur.setPrenomUtilisateur(prenomTextField.getText());
-                utilisateur.setEmailUtilisateur(adresseMailTextField1.getText());
-                utilisateur.setLoginUtilisateur(LoginTextField1.getText());
-                utilisateur.setMot_de_passeUtilisateur(mo1TextField2.getText());
-                utilisateur.setRankUtilisateur(0);
-                utilisateur.setNumero_telephoneUtilisateur(numTelTextField11.getText());
-                utilisateur.setAdresseUtilisateur(adresseTextField11.getText());
-       if (us.signUp1(utilisateur)==0) {
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/SignUp2.fxml"));
-           Parent root = (Parent) loader.load();
-           Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           stage.setUserData(utilisateur);
-           // SignUp2Controller signUp2Controller=loader.getController();
-           //   signUp2Controller.returnUser(LoginTextField1.getText());
-           //  signUp2Controller.show(LoginTextField1.getText());
-           Scene scene = new Scene(root);
-           stage.setScene(scene);
-           stage.show();
-       }
-       else if (us.signUp1(utilisateur)==1)
-       {
-           ErrorLabel.setText("L'adresse email deja existe");
-       }else if (us.signUp1(utilisateur)==2)
-       {
-           ErrorLabel.setText("Le login est deja utilisé \n Login Disponible :"+us.Login_Dispo(utilisateur)+"  !");
+            Utilisateur utilisateur = new Utilisateur();
+            UtilisateurService us = new UtilisateurService();
+            utilisateur.setNomUtilisateur(nomTextField.getText());
+            utilisateur.setPrenomUtilisateur(prenomTextField.getText());
+            utilisateur.setEmailUtilisateur(adresseMailTextField1.getText());
+            utilisateur.setLoginUtilisateur(LoginTextField1.getText());
+            utilisateur.setMot_de_passeUtilisateur(mo1TextField2.getText());
+            utilisateur.setRankUtilisateur(0);
+            utilisateur.setNumero_telephoneUtilisateur(numTelTextField11.getText());
+            utilisateur.setAdresseUtilisateur(adresseTextField11.getText());
+            if (us.signUp1(utilisateur)==0) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/SignUp2.fxml"));
+                Parent root = (Parent) loader.load();
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setUserData(utilisateur);
+                // SignUp2Controller signUp2Controller=loader.getController();
+                //   signUp2Controller.returnUser(LoginTextField1.getText());
+                //  signUp2Controller.show(LoginTextField1.getText());
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
+            else if (us.signUp1(utilisateur)==1)
+            {
+                ErrorLabel.setText("L'adresse email deja existe");
+            }else if (us.signUp1(utilisateur)==2)
+            {
+                ErrorLabel.setText("Le login est deja utilisé \n Login Disponible :"+us.Login_Dispo(utilisateur)+"  !");
 
-       }
-    }}
+            }
+        }}
     @FXML
     void Back(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Views/Login.fxml"));
@@ -147,14 +147,14 @@ public class SignUpController {
             return true ;
         }
         return false;
-        }
+    }
     @FXML
     void gnlogin() {
         Random rand = new Random(); //instance of random class
         int upperbound = 10000;
         int int_random = rand.nextInt(upperbound);
         String Newlogin=nomTextField.getText()+"."+int_random;
-         Newlogin= Newlogin.replace(" ","");
+        Newlogin= Newlogin.replace(" ","");
         LoginTextField1.setText(Newlogin);
     }
     /*public void loadImg()

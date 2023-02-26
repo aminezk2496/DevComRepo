@@ -3,6 +3,7 @@ package Controllers;
 import Entities.Utilisateur;
 import Services.UserSession;
 import Services.UtilisateurService;
+import com.itextpdf.text.DocumentException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,6 +52,7 @@ public class GestionUtilisateurController {
 
     @FXML
     public void initialize() throws SQLException {
+
         Utilisateur u = new Utilisateur();
         UtilisateurService us =new UtilisateurService();
         u = (Utilisateur) UserSession.INSTANCE.get("user");
@@ -91,8 +93,8 @@ public class GestionUtilisateurController {
         {
             if (us.ChangePWD(u,pwd.getText()))
             {
-            MessageUpdate.setText("Mot de passe changé");
-            pwd.setText("");
+                MessageUpdate.setText("Mot de passe changé");
+                pwd.setText("");
             }
         }else
         {
@@ -112,7 +114,7 @@ public class GestionUtilisateurController {
                 new FileChooser.ExtensionFilter("IMAGE FILES", "*.jpg", "*.png", "*.gif")
         );
         File file = fileChooser.showOpenDialog(null);
-        String DBPath = "C:\\xampp\\htdocs\\PideversImgUploaded\\"+u.getLoginUtilisateur()+".jpg";
+        String DBPath = "C:\\xampp\\htdocs\\devcomimgupload\\"+u.getLoginUtilisateur()+".jpg";
         if (file != null) {
 
             // pickUpPathField it's your TextField fx:id

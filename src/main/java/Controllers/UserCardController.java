@@ -36,7 +36,7 @@ public class UserCardController {
         }
         String path = user.getImgUtilisateur();
         File file = new File(path);
-       Image image = new Image("file:"+file.getAbsolutePath());
+        Image image = new Image("file:"+file.getAbsolutePath());
         CircleImg.setFill(new ImagePattern(image));
     }
 }

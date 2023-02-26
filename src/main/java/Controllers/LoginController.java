@@ -18,7 +18,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import java.io.IOException;
 import java.sql.Connection;
 
-public class LoginController {
+public class LoginController  {
     @FXML
     private Label ErrorLabel;
     @FXML
@@ -35,8 +35,8 @@ public class LoginController {
     public void Login(ActionEvent event) throws IOException {
 
         String Password= DigestUtils.sha1Hex(passwordTextField.getText());
-        if (usernameTextField.getText()=="" || (passwordTextField.getText())=="") {
-        ErrorLabel.setText("username ou le mot de passe est vide");
+        if (usernameTextField.getText().equals("") || (passwordTextField.getText()).equals("")) {
+            ErrorLabel.setText("username ou le mot de passe est vide");
         }
         else if (us.Login(usernameTextField.getText(),Password)){
             UserSession.INSTANCE.put("user",us.getUserData(usernameTextField.getText()));
@@ -51,14 +51,27 @@ public class LoginController {
             ErrorLabel.setText("Invalid Data, please try again");
         }
     }
-
+    @FXML
+    void LogwithFB(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/LogWithFacebook.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     public void registre(ActionEvent event) throws IOException {
-       Parent root = FXMLLoader.load(getClass().getResource("/Views/SignUp.fxml"));
-       Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-       Scene scene = new Scene(root);
-       stage.setScene(scene);
-       stage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/SignUp.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
-
+    public void forgotpassword(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/Views/ForgetPassword1.fxml"));
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

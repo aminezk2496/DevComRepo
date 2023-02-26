@@ -2,12 +2,19 @@ package Services;
 
 import Entities.Utilisateur;
 import Tools.MaConnexion;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.mail.*;
-
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
@@ -225,7 +232,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
     }
 
     public boolean Login(String username, String Password) {
-        System.out.println(Password);
+        // System.out.println(Password);
         String q1 = "SELECT * from utilisateur WHERE login_utilisateur = '"
                 + username + "' AND mdp_utilisateur = '"
                 + Password + "'";
@@ -390,7 +397,102 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
         }
         return user;
     }
+    public boolean SendMail(Utilisateur user,String code )
+    {
+        Utilisateur u = getUserDataWithEmail(user.getEmailUtilisateur());
+        String password = "slzwonaplhtpfcww";
+        String from,to,host,sub,content;
+        from = "devcompi2023@gmail.com";
+        to =u.getEmailUtilisateur();
+        host="localhost";
+        if (code == "null")
+        {
+            sub="Bienvenue sur notre Plateforme";
+            content="Bonjour Mr/Mme "+u.getNomUtilisateur()+" "+u.getPrenomUtilisateur()+". Au nom de tous les membres du plateforme, je vous souhaite la bienvenue.";
+            Properties properties = new Properties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "587");
+            Session session=Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+                        protected PasswordAuthentication getPasswordAuthentication()
+                        {
+                            return new PasswordAuthentication(from,password);
+                        }
+                    }
+            );
+            try {
+                MimeMessage m =new MimeMessage(session);
+                m.setFrom(from);
+                m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+                m.setSubject(sub);
+                m.setText(content);
+                Transport.send(m);
+                return true;
 
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+        }else
+        {
+            System.out.println(u);
+            sub="Réinitialisation du mot de passe de votre compte ";
+            content="Bonjour"+u.getPrenomUtilisateur()+".\n \n Avez-vous oublié votre mot de passe \n \n Taper ce code dans l'application =  " +code+" \n \n" +
+                    "Si vous ne souhaitez pas changer votre mot de passe ou si vous ne l’avez pas demandé, veuillez ignorer et supprimer ce message. \n \n" +
+                    "Cordialement,\n \n " +
+                    "L’équipe PiDevers ";
+            Properties properties = new Properties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "587");
+            Session session=Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+                        protected PasswordAuthentication getPasswordAuthentication()
+                        {
+                            return new PasswordAuthentication(from,password);
+                        }
+                    }
+            );
+            try {
+                MimeMessage m =new MimeMessage(session);
+                m.setFrom(from);
+                m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+                m.setSubject(sub);
+                m.setText(content);
+                Transport.send(m);
+                return true;
+
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return false;
+    }
+    public String ForgetPWD(String email)
+    {
+        String Code="";
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        Utilisateur u =new Utilisateur();
+        int length = 7;
+        for(int i = 0; i < length; i++) {
+            int index = random.nextInt(alphabet.length());
+            char randomChar = alphabet.charAt(index);
+            sb.append(randomChar);
+        }
+        String randomString = sb.toString();
+        Code=randomString;
+        u.setEmailUtilisateur(email);
+
+        if (SendMail(u,Code))
+        {
+            System.out.println("Service"+Code);
+            return Code;
+        }
+        return "null";
+    }
     public boolean ChangePWD(Utilisateur user,String mdp)
     {
         String query="UPDATE utilisateur SET " +
@@ -438,6 +540,45 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
             System.out.println(e.getMessage());
         }
         return users;
+    }
+
+    public void pdfUtilisateurs() throws FileNotFoundException, DocumentException {
+        try {
+
+            String file_name="C:\\xampp\\htdocs\\nosUtilisateurs.pdf";
+            Document doc = new Document();
+            PdfWriter.getInstance(doc, new FileOutputStream(file_name));
+            doc.open();
+            PreparedStatement ps=null;
+            ResultSet rs=null;
+            String query = "SELECT * FROM UTILISATEUR ";
+            ps=cnx.prepareStatement(query);
+            rs=ps.executeQuery();
+
+            Paragraph title = new Paragraph("                                                                        Nos Utilisateurs");
+            title.setSpacingBefore(15);
+            title.setSpacingAfter(15);
+            doc.add(title);
+            Paragraph head = new Paragraph("                   Nom                   Prenom                      Tel                       Email");
+            head.setSpacingBefore(15);
+            head.setSpacingAfter(15);
+            doc.add(head);
+            while(rs.next()) {
+                Paragraph para=new Paragraph( "                        " +
+                        rs.getString("nom_utilisateur") + "                        " +
+                        rs.getString("prenom_utilisateur")+"                        " +rs.getString("telephone_utilisateur")+"                        "+
+                        rs.getString("email_utilisateur")
+                );
+               /* para.setSpacingBefore(15);
+                para.setSpacingAfter(15);*/
+                doc.add(para);
+                doc.add(new Paragraph(" "));
+            }
+            doc.close();
+            System.out.println("Utilisateurs Pdf Generated With Success");
+        }catch(Exception k){
+            System.err.println(k);
+        }
     }
 }
 

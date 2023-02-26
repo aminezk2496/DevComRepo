@@ -80,47 +80,48 @@ public class FrontController {
 
     public void initialize() throws SQLException {
         ShowUsers();
-    // Session
-    Utilisateur u = new Utilisateur();
-    UtilisateurService us =new UtilisateurService();
-    u = (Utilisateur) UserSession.INSTANCE.get("user");
-    LbLogUser.setText(u.getLoginUtilisateur());
-    String path= us.LoadIMG(u);
-System.out.println(path);
-File f = new File(path);
-Image img= new Image("file:"+f.getAbsolutePath());
-System.out.println(f.getAbsolutePath());
-idimg.setFill(new ImagePattern(img));
-    adminCard1.setVisible(false);
-    adminCard11.setVisible(false);
-    adminCard111.setVisible(false);
-    adminCard1111.setVisible(false);
-    adminCard2.setVisible(false);
-    adminCard22.setVisible(false);
-    adminCard222.setVisible(false);
-    adminCard2222.setVisible(false);
-    adminCard3.setVisible(false);
-    adminCard33.setVisible(false);
-    adminCard333.setVisible(false);
-    adminCard3333.setVisible(false);
-
-        if (u.getRankUtilisateur()==1||u.getRankUtilisateur()==2)
-    {
+        // Session
+        Utilisateur u = new Utilisateur();
+        UtilisateurService us =new UtilisateurService();
+        u = (Utilisateur) UserSession.INSTANCE.get("user");
+        LbLogUser.setText(u.getLoginUtilisateur());
+        String path= us.LoadIMG(u);
+        System.out.println(path);
+        File f = new File(path);
+        System.out.println("//////");
+        System.out.println(f.getAbsolutePath());
+        Image img= new Image("file:"+f.getAbsolutePath());
+        idimg.setFill(new ImagePattern(img));
         adminCard1.setVisible(false);
         adminCard11.setVisible(false);
         adminCard111.setVisible(false);
         adminCard1111.setVisible(false);
-        adminCard2.setVisible(true);
-        adminCard22.setVisible(true);
-        adminCard222.setVisible(true);
-        adminCard2222.setVisible(true);
+        adminCard2.setVisible(false);
+        adminCard22.setVisible(false);
+        adminCard222.setVisible(false);
+        adminCard2222.setVisible(false);
         adminCard3.setVisible(false);
         adminCard33.setVisible(false);
         adminCard333.setVisible(false);
         adminCard3333.setVisible(false);
-        Reclamation.setVisible(false);
+
+        if (u.getRankUtilisateur()==1||u.getRankUtilisateur()==2)
+        {
+            adminCard1.setVisible(false);
+            adminCard11.setVisible(false);
+            adminCard111.setVisible(false);
+            adminCard1111.setVisible(false);
+            adminCard2.setVisible(true);
+            adminCard22.setVisible(true);
+            adminCard222.setVisible(true);
+            adminCard2222.setVisible(true);
+            adminCard3.setVisible(false);
+            adminCard33.setVisible(false);
+            adminCard333.setVisible(false);
+            adminCard3333.setVisible(false);
+            Reclamation.setVisible(false);
+        }
     }
-}
 
     public void Reclamation()
     {
@@ -199,7 +200,7 @@ idimg.setFill(new ImagePattern(img));
         fxmlLoader = new FXMLLoader(Main.class.getResource("/Views/GestionGererUsers.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load(), 993, 616);
-        stage.setTitle("Welcome To Campings Space");
+        stage.setTitle("Welcome To Gerer Users");
         stage.setScene(scene);
         stage.show();
     }
@@ -223,16 +224,16 @@ idimg.setFill(new ImagePattern(img));
             Utilisateur u = new Utilisateur();
             u = (Utilisateur) UserSession.INSTANCE.get("user");
             if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2){
-                for (Utilisateur usr : mesUtilisateurs) {
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(getClass().getResource("/Views/UserCard.fxml"));
-                    VBox cardBox = fxmlLoader.load();
-                    UserCardController userCardController = fxmlLoader.getController();
-                    userCardController.setDataUser(usr);
-                    userCardLayout.getChildren().add(cardBox);
-                }
+
+            for (Utilisateur usr : mesUtilisateurs) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/Views/UserCard.fxml"));
+                VBox cardBox = fxmlLoader.load();
+                UserCardController userCardController = fxmlLoader.getController();
+                userCardController.setDataUser(usr);
+                userCardLayout.getChildren().add(cardBox);
             }
-        }
+        }}
         catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -242,7 +243,7 @@ idimg.setFill(new ImagePattern(img));
     public void switchToSettings(ActionEvent event) throws IOException {
         fxmlLoader = new FXMLLoader(Main.class.getResource("/Views/GestionUtilisateur.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(fxmlLoader.load());
+        scene = new Scene(fxmlLoader.load(), 993, 616);
         stage.setTitle("Welcome To Settings Space");
         stage.setScene(scene);
         stage.show();
