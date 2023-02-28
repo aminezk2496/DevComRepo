@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="649.0" prefWidth="1087.0" style="-fx-background-color: #2F2B43;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SignUpController">
+
+    <children>
+        <Pane layoutX="4.0" layoutY="2.0" prefHeight="649.0" prefWidth="1098.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="-15.0" AnchorPane.topAnchor="2.0">
+            <children>
+                <Pane layoutX="76.0" layoutY="106.0" />
+                <Pane layoutX="411.0" layoutY="66.0" prefHeight="61.0" prefWidth="262.0" style="-fx-background-color: #FA2C56; -fx-background-radius: 5;">
+                    <children>
+                        <Label layoutX="61.0" layoutY="17.0" text="Créer un compte" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Label layoutX="175.0" layoutY="174.0" text="Nom" textFill="WHITE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <TextField id="usernameTextField" fx:id="nomTextField" layoutX="485.0" layoutY="180.0" />
+                <Label layoutX="176.0" layoutY="211.0" text="Prenom" textFill="WHITE">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <TextField id="PasswordTextField" fx:id="prenomTextField" layoutX="485.0" layoutY="217.0" />
+                <Button id="registreButton" fx:id="registrebutton" layoutX="311.0" layoutY="506.0" mnemonicParsing="false" onAction="#registre" prefHeight="37.0" prefWidth="216.0" text="Suivant" />
+                <ButtonBar layoutX="557.0" layoutY="422.0" prefHeight="40.0" prefWidth="200.0" />
+                <Label fx:id="ErrorLabel1" layoutX="428.0" layoutY="450.0" textFill="RED">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </Label>
+            <Label layoutX="176.0" layoutY="243.0" text="Adresse mail" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField id="usernameTextField" fx:id="adresseMailTextField1" layoutX="486.0" layoutY="249.0" />
+            <Label layoutX="177.0" layoutY="280.0" text="Login" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField id="PasswordTextField" fx:id="LoginTextField1" layoutX="486.0" layoutY="286.0" />
+            <Label layoutX="176.0" layoutY="321.0" text="Mot de passe" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="177.0" layoutY="358.0" text="Confimer votre mot de passe" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="177.0" layoutY="390.0" text="Numero de telephone" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField id="usernameTextField" fx:id="numTelTextField11" layoutX="487.0" layoutY="396.0" />
+            <Label layoutX="178.0" layoutY="427.0" text="Adresse " textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField id="PasswordTextField" fx:id="adresseTextField11" layoutX="487.0" layoutY="433.0" />
+            <Label fx:id="ErrorLabel" layoutX="606.0" layoutY="516.0" textFill="RED" />
+            <ImageView fx:id="imgArea" fitHeight="150.0" fitWidth="200.0" layoutX="774.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="gnlogin" layoutX="647.0" layoutY="286.0" mnemonicParsing="false" onAction="#gnlogin" text="Générer un login" />
+            <PasswordField fx:id="mo1TextField2" layoutX="485.0" layoutY="324.0" />
+            <PasswordField fx:id="mo2TextField2" layoutX="485.0" layoutY="361.0" />
+            </children>
+        </Pane>
+      <Button fx:id="Back" layoutX="979.0" layoutY="611.0" mnemonicParsing="false" onAction="#Back" text="Back" />
+    </children>
+</AnchorPane>
