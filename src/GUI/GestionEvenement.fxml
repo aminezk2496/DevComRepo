@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="704.0" prefWidth="1256.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EvenementClientController">
+   <children>
+      <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </VBox.margin>
+                     <children>
+                        <Pane prefHeight="10.0" prefWidth="1225.0" style="-fx-background-color: #ddd;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="back" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="137.0" styleClass="search-button" stylesheets="@style-event.css" text="Retour" textAlignment="JUSTIFY" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <HBox alignment="CENTER" layoutX="249.0" layoutY="12.0" prefHeight="35.0" prefWidth="294.0" stylesheets="@style-event.css">
+                                 <children>
+                                    <TextField fx:id="searchInput" prefHeight="40.0" prefWidth="167.0" promptText="Tapez ici pour rechercher" styleClass="transparent" stylesheets="@style-event.css">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Cambria" size="13.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button mnemonicParsing="false" onAction="#affiche" prefHeight="41.0" prefWidth="118.0" styleClass="search-button" stylesheets="@style-event.css" text="Rechercher" textFill="WHITE" />
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="search-box" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </HBox>
+                              <Label fx:id="NomUser" layoutX="1059.0" prefHeight="58.0" prefWidth="154.0" text="Se connecter" textFill="#878787">
+                                 <font>
+                                    <Font name="Cambria" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="654.0" prefWidth="885.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <ScrollPane fx:id="scroll" prefHeight="671.0" prefWidth="943.0" styleClass="transparent" stylesheets="@style-event.css">
+                           <content>
+                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </ScrollPane>
+                        <VBox prefHeight="647.0" prefWidth="369.0" styleClass="right-bar" stylesheets="@style-event.css">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="53.0" prefWidth="341.0" style="-fx-background-color: eee;">
+                                 <children>
+                                    <Label prefHeight="45.0" prefWidth="272.0" text="Vos évènements :">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font></Label>
+                                 </children>
+                              </HBox>
+                              <ScrollPane fx:id="PartiList" prefHeight="598.0" prefWidth="341.0">
+                                <content>
+                                   <GridPane fx:id="gridParti" prefHeight="0.0" prefWidth="0.0">
+                                        <rowConstraints>
+                                           <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                                        </rowConstraints>
+                                     </GridPane>
+                                </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
