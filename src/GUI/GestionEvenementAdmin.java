@@ -133,8 +133,14 @@ public class GestionEvenementAdmin  implements Initializable {
         affiche();
     }
     public static final LocalDate LOCAL_DATE (String dateString){
-         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDate localDate = LocalDate.parse(dateString, formatter);
+        LocalDate localDate = null;
+        try{
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            localDate = LocalDate.parse(dateString.substring(0,19), formatter);
+            
+        }catch (Exception e) {
+            System.out.println(e);
+        }
         return localDate;
     }
      public void back(javafx.event.ActionEvent event) throws IOException {

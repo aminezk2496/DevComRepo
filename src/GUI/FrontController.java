@@ -143,6 +143,8 @@ public class FrontController {
         Utilisateur u = new Utilisateur();
         UtilisateurService us =new UtilisateurService();
         u = (Utilisateur) UserSession.INSTANCE.get("user");
+        System.out.println("####################################");
+        System.out.println(u.getRankUtilisateur());
         if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2){
             fxmlLoader = new FXMLLoader(Main.class.getResource("GestionEvenement.fxml"));
         }else{
