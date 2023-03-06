@@ -140,10 +140,17 @@ public class FrontController {
         }
     }
     public  void switchToEvenement(ActionEvent event) throws IOException{
-        fxmlLoader = new FXMLLoader(Main.class.getResource("GestionEvenement.fxml"));
+        Utilisateur u = new Utilisateur();
+        UtilisateurService us =new UtilisateurService();
+        u = (Utilisateur) UserSession.INSTANCE.get("user");
+        if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2){
+            fxmlLoader = new FXMLLoader(Main.class.getResource("GestionEvenement.fxml"));
+        }else{
+            fxmlLoader = new FXMLLoader(Main.class.getResource("GestionEvenementAdmin.fxml"));
+        }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load(), 993, 616);
-        stage.setTitle("Welcome To Events Space");
+        stage.setTitle("Découvrir des évènements");
         stage.setScene(scene);
         stage.show();
     }
