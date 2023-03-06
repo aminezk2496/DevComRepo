@@ -35,13 +35,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -220,9 +218,7 @@ public class EvenementClientController implements Initializable {
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
                 grid.setMaxWidth(Region.USE_PREF_SIZE);
-                //set grid height
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                // grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
                 GridPane.setMargin(anchorPane, new Insets(10,10,10,10));
             }
@@ -263,7 +259,6 @@ public class EvenementClientController implements Initializable {
         try {
             int column = 0;
             int row = 1;
-            int rowParti = 1;
             
             gridParti.getChildren().clear();
             for (int i = 0; i < list.size(); i++) {
@@ -273,10 +268,7 @@ public class EvenementClientController implements Initializable {
                 AnchorPane anchorPane = fxmlLoader.load();
                 ItemEvenementController ItemEvenementController = fxmlLoader.getController();
                 ItemEvenementController.setData(list.get(i));
-                
-                    row++;
-               
-                rowParti++;
+                row++;
                 gridParti.add(anchorPane,  column, row); //(child,column,row)
                 gridParti.setMinWidth(Region.USE_COMPUTED_SIZE);
                 gridParti.setPrefWidth(Region.USE_COMPUTED_SIZE);

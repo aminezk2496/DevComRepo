@@ -10,11 +10,7 @@ import Services.UserSession;
 import Services.UtilisateurService;
 
 import Tools.MaConnexion;
-import java.awt.Button;
-import java.awt.Image;
 import java.awt.Label;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -29,8 +25,6 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -215,7 +209,6 @@ public class GestionEvenementAdmin  implements Initializable {
     public void affiche() {
 
          ObservableList<Evenement> list = getEvenement();
-         //type_ch
         col_id_event.setCellValueFactory(new PropertyValueFactory<>("idEvent"));
         col_titre_event.setCellValueFactory(new PropertyValueFactory<>("titreEvent"));
         col_date_debut_event.setCellValueFactory(new PropertyValueFactory<>("dateDebutEvent"));
@@ -266,18 +259,14 @@ public class GestionEvenementAdmin  implements Initializable {
         }
     }
     static String getAlphaNumericString(int n){
-		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-         + "0123456789"
-         + "abcdefghijklmnopqrstuvxyz";
-		StringBuilder sb = new StringBuilder(n);
- 
-		for (int i = 0; i < n; i++) {
-			int index = (int)(AlphaNumericString.length() * Math.random());
-			sb.append(AlphaNumericString.charAt(index));
-		}
- 
-		return sb.toString();
-	}
+        String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvxyz";
+        StringBuilder sb = new StringBuilder(n);
+	for (int i = 0; i < n; i++) {
+            int index = (int)(AlphaNumericString.length() * Math.random());
+            sb.append(AlphaNumericString.charAt(index));
+      	}
+	return sb.toString();
+    }
  
 
      @FXML
@@ -307,7 +296,6 @@ public class GestionEvenementAdmin  implements Initializable {
             FileOutputStream Fdestination = new FileOutputStream(DBPath);
             BufferedInputStream bin = new BufferedInputStream(Fsource);
             BufferedOutputStream bou = new BufferedOutputStream(Fdestination);
-            //javafx.scene.image.Image img = new javafx.scene.image.Image("file:"+file.getAbsolutePath());
             int b=0;
             while(b!=-1){
                 b=bin.read();
