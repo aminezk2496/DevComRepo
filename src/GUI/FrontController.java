@@ -158,23 +158,13 @@ public class FrontController {
 
     @FXML
     void switchToBlog(ActionEvent event) throws IOException {
-        Utilisateur u = new Utilisateur();
-        u = (Utilisateur) UserSession.INSTANCE.get("user");
-        if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2) {
-            fxmlLoader = new FXMLLoader(Main.class.getResource("GestionBlogBackup.fxml"));
+            fxmlLoader = new FXMLLoader(Main.class.getResource("ShowPub.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader.load(), 993, 616);
             stage.setTitle("Welcome To Events Space");
             stage.setScene(scene);
             stage.show();
-        } else {
-            fxmlLoader = new FXMLLoader(Main.class.getResource("GestionBlog.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(fxmlLoader.load(), 993, 616);
-            stage.setTitle("Welcome To Events Space");
-            stage.setScene(scene);
-            stage.show();
-        }
+        
     }
     @FXML
     void switchToHotel(ActionEvent event) throws IOException {

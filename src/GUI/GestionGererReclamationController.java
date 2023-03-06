@@ -19,6 +19,13 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+
 import java.io.IOException;
 import java.util.List;
 import javafx.collections.ObservableList;
@@ -30,21 +37,30 @@ public class GestionGererReclamationController {
     private Parent root;
     FXMLLoader fxmlLoader;
     @FXML
-    private GridPane GridRec;
-    @FXML
     private TextField FindRec;
 
     @FXML
     private Label MessageUpdate;
 
     @FXML
-    private ScrollPane ScrollRec;
+    private FlowPane flowPane;
 
     @FXML
     private HBox hboxRec;
 
     @FXML
     private ImageView imgArea;
+    @FXML
+    private GridPane GridRec;
+   
+
+   
+
+    @FXML
+    private ScrollPane ScrollRec;
+    
+
+   
     private List<Reclamation> mesReclamations;
    @FXML
     void switchToMainFront(ActionEvent event) throws IOException {

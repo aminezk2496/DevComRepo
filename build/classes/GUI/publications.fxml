@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.publicationcontroller">
+     <children>
+    <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+        <children>
+            <Pane layoutX="626.0" layoutY="-1.0" prefHeight="94.0" prefWidth="370.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@style.css">
+                <children>
+                    <Label layoutX="139.0" layoutY="28.0" text="Publication" textFill="#fff600">
+                        <font>
+                            <Font size="26.0" />
+                        </font>
+                    </Label>
+                </children>
+            </Pane>
+            <VBox prefHeight="544.0" prefWidth="74.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                    <Pane prefHeight="79.0" prefWidth="74.0" style="-fx-background-radius: 15 0 15 15;">
+                        <children>
+                            <Button contentDisplay="TOP" layoutY="12.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="74.0" styleClass="button3" stylesheets="@style.css" text="MainPage" textFill="#a868a0">
+                                <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@cat.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </children></Pane>
+                </children>
+            </VBox>
+            <AnchorPane layoutX="91.0" layoutY="84.0" prefHeight="531.0" prefWidth="886.0" style="-fx-background-color: #131022;" stylesheets="@style.css">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="14.0" text="publications" textFill="WHITE">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+    
+          
+      
+      <Label layoutX="23.0" layoutY="148.0" text="CONTENU:" textFill="WHITE" textOverrun="CLIP" />
+      
+      <TableView fx:id="tableview" layoutX="416.0" layoutY="95.0" prefHeight="200.0" prefWidth="770.0">
+        <columns>
+          <TableColumn fx:id="contenu_A" prefWidth="154.39996337890625" text="contenu" />
+            <TableColumn fx:id="user_A" prefWidth="107.20001220703125" text="propritaire" />
+            <TableColumn fx:id="imag_A" prefWidth="153.5999755859375" text="image" />
+            <TableColumn fx:id="date_A" minWidth="20.0" prefWidth="353.6000122070312" text="date_publication" />
+        </columns>
+      </TableView>
+      <Label layoutX="38.0" layoutY="411.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_ajouter" layoutX="29.0" layoutY="398.0" mnemonicParsing="false" onAction="#addPub" prefHeight="26.0" prefWidth="143.0" style="-fx-background-color: #6622CC;" text="ajouter publication" textFill="WHITE">
+       
+      </Button>
+       <Button fx:id="btn_img1" layoutX="202.0" layoutY="397.0" mnemonicParsing="false" onAction="#importerImageUpdate" prefHeight="26.0" prefWidth="58.0" style="-fx-border-image-repeat: #6622CC;" text="image" textFill="WHITE">
+         
+      </Button>
+      <ImageView fx:id="img" fitHeight="234.0" fitWidth="399.0" layoutX="341.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btn_modifier1" layoutX="29.0" layoutY="440.0" mnemonicParsing="false" onAction="#updatePublication" prefHeight="26.0" prefWidth="143.0" style="-fx-background-color: #6622CC;" text="modifier publication" textFill="WHITE" />
+      <TextArea fx:id="contenu" layoutX="91.0" layoutY="136.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="btn_supprimer" layoutX="819.0" layoutY="310.0" mnemonicParsing="false" onAction="#supprimerPublication" prefHeight="26.0" prefWidth="143.0" style="-fx-background-color: red;" text="supprimer publication" textFill="WHITE" />
+      <Button fx:id="trier" layoutX="416.0" layoutY="58.0" mnemonicParsing="false" onAction="#trier" text="trier " />
+     
+                          </children>
+            </AnchorPane>
+            <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@logo.png" />
+                </image>
+            </ImageView>
+            <Label layoutX="134.0" layoutY="29.0" text="Devcom-Team" textFill="WHITE">
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+      <TextField fx:id="FindRec" layoutX="380.0" layoutY="34.0" prefHeight="19.0" prefWidth="204.0" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10; -fx-text-fill: FFFFFF;" />
+      <Label layoutX="288.0" layoutY="38.0" text="Rechercher" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+        <Button fx:id="switchToMainFront" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToMainFront" prefHeight="66.0" prefWidth="74.0" styleClass="button3" stylesheets="@style.css" text="MainPage" textFill="#a868a0">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@cat.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+</children>
+</AnchorPane>

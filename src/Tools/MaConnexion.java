@@ -16,7 +16,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MaConnexion {
-    private String url="jdbc:mysql://localhost:3306/espritpi";
+    private String url="jdbc:mysql://localhost:3306/discovertn";
     private String user="root";
     private String pwd ="";
     private Connection cnx;

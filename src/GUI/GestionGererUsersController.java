@@ -30,6 +30,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class GestionGererUsersController {
+
     @FXML
     private Label LbLogUser;
 
@@ -52,17 +53,17 @@ public class GestionGererUsersController {
 
     public void initialize() throws SQLException {
         Utilisateur u = new Utilisateur();
-        UtilisateurService us =new UtilisateurService();
+        UtilisateurService us = new UtilisateurService();
         u = (Utilisateur) UserSession.INSTANCE.get("user");
         LbLogUser.setText(u.getLoginUtilisateur());
-        String path= null;
+        String path = null;
         try {
             path = us.LoadIMG(u);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         File f = new File(path);
-        Image img = new Image("file:"+f.getAbsolutePath());
+        Image img = new Image("file:" + f.getAbsolutePath());
         idimg1.setFill(new ImagePattern(img));
         ShowUsers();
         UserScrollPane.setStyle("-fx-background: #131313; -fx-border-color: #131313;");
@@ -72,11 +73,11 @@ public class GestionGererUsersController {
         FindUser.setOnKeyReleased(keyEvent -> {
             clearData();
             showUsersByLog();
-                }
-                );
+        }
+        );
     }
-    public void showUsersByLog()
-    {
+
+    public void showUsersByLog() {
         String login = FindUser.getText();
         UtilisateurService us = new UtilisateurService();
         try {
@@ -104,28 +105,23 @@ public class GestionGererUsersController {
             System.out.println(e.getMessage());
         }
     }
+
     public void ShowUsers() {
         UtilisateurService us = new UtilisateurService();
         Utilisateur u = new Utilisateur();
         u = (Utilisateur) UserSession.INSTANCE.get("user");
-if (u.getRankUtilisateur()==1)
-{
-    mesUtilisateurs = us.afficherClient();
+        if (u.getRankUtilisateur() == 1) {
+            mesUtilisateurs = us.afficherClient();
 
-
-}else if (u.getRankUtilisateur()==2)
-{
-    mesUtilisateurs = us.afficher();
-   mesUtilisateurs.remove(u);
-}
+        } else if (u.getRankUtilisateur() == 2) {
+            mesUtilisateurs = us.afficher();
+            mesUtilisateurs.remove(u);
+        }
         try {
             int columns = 0;
             int row = 1;
 
-
             for (int i = 0; i < mesUtilisateurs.size(); ++i) {
-
-
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("GestionCardUsers.fxml"));
@@ -144,12 +140,13 @@ if (u.getRankUtilisateur()==1)
             System.out.println(e.getMessage());
         }
     }
+
     public void clearData() {
 
         for (int x = 0; x < UserGridPane.getColumnConstraints().size(); x++) {
             for (int i = 0; i < UserGridPane.getRowConstraints().size(); i++) {
                 {
-                   removeNodeByRowColumnIndex(i, x, UserGridPane);
+                    removeNodeByRowColumnIndex(i, x, UserGridPane);
                 }
             }
         }
@@ -165,10 +162,11 @@ if (u.getRankUtilisateur()==1)
         }
         return false;
     }
+
     @FXML
     void switchToMainFront(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainFront.fxml"));
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -180,5 +178,3 @@ if (u.getRankUtilisateur()==1)
         us.pdfUtilisateurs();
     }
 }
-
-
