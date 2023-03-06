@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="691.0" prefWidth="1214.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RandonneeController">
+   <children>
+      <BorderPane prefHeight="691.0" prefWidth="1214.0">
+         <top>
+            <AnchorPane prefHeight="98.0" prefWidth="774.0" style="-fx-background-color: #ad5c33;" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="#a9dac1" layoutX="331.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Randonnee">
+                     <font>
+                        <Font name="Times New Roman" size="52.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="Back" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackA" style="-fx-background-color: #1E361B;" text="Retour" textFill="#c7d7c7">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font></Button>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane prefHeight="593.0" prefWidth="238.0" style="-fx-background-color: #ad5c33;" BorderPane.alignment="CENTER">
+               <children>
+              <TextField fx:id="idR" layoutX="25.0" layoutY="47.0" prefHeight="25.0" prefWidth="172.0" visible="false" />
+                   <Label layoutX="14.0" layoutY="14.0" prefHeight="22.0" prefWidth="40.0" text="Nom" textFill="#a9dac1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nom" layoutX="17.0" layoutY="36.0" prefHeight="25.0" prefWidth="160.0" />
+                  <Label layoutX="14.0" layoutY="75.0" text="Date Randonnee" textFill="#a9dac1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="date_Rand" layoutX="16.0" layoutY="95.0" prefHeight="25.0" prefWidth="163.0" />
+                  <Label layoutX="14.0" layoutY="133.0" text="Lieux" textFill="#a9dac1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="lieux" layoutX="15.0" layoutY="157.0" prefHeight="25.0" prefWidth="166.0" />
+                  <Label layoutX="18.0" layoutY="193.0" text="Prix" textFill="#a9dac1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="prix" layoutX="17.0" layoutY="215.0" prefHeight="25.0" prefWidth="164.0" />
+                  <Label layoutX="18.0" layoutY="254.0" text="Niveau Difficulté" textFill="#a9dac1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="niveau_Diff" layoutX="20.0" layoutY="278.0" prefHeight="25.0" prefWidth="159.0" />
+                  <Label layoutX="20.0" layoutY="311.0" text="Programme" textFill="#a9dac1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="programme" layoutX="16.0" layoutY="341.0" prefHeight="96.0" prefWidth="189.0" />
+                  <Button fx:id="insertImageButton" layoutX="38.0" layoutY="504.0" mnemonicParsing="false" onAction="#insertImageAction" prefHeight="28.0" prefWidth="141.0" text="Insérer une image" textFill="#518645">
+                     <font>
+                        <Font name="Times New Roman Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Add" layoutX="161.0" layoutY="547.0" mnemonicParsing="false" onAction="#AjouterRand" prefHeight="25.0" prefWidth="50.0" text="Add" textFill="#518645">
+               <font>
+                      <Font name="Times New Roman Bold" size="12.0" />
+                </font>
+                
+                        </Button>
+                         
+                        <Button fx:id="bupdate" layoutX="11.0" layoutY="547.0" mnemonicParsing="false" onAction="#updateEvent" prefHeight="25.0" prefWidth="61.0" styleClass="btn" stylesheets="@style.css" text="Edit" textFill="#518645">
+           
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="bdelete" layoutX="84.0" layoutY="547.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="25.0" prefWidth="65.0" styleClass="btn" stylesheets="@style.css" text="Delete" textFill="#518645">
+           
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font>
+         </Button>  
+        <Button fx:id="bclear" layoutX="177.0" layoutY="14.0" mnemonicParsing="false" onAction="#clearEvent" prefHeight="23.0" prefWidth="56.0" styleClass="btn" stylesheets="@style.css" text="Reset" textFill="#518645">
+            <font>
+                <Font name="Times New Roman Bold" size="12.0" />
+            </font></Button>
+                  <Label layoutX="18.0" layoutY="444.0" text="Nombre de Place" textFill="#a9dac1">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="NbrP" layoutX="19.0" layoutY="464.0" prefHeight="25.0" prefWidth="183.0" /> 
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ebf5f0;" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="tableR" layoutX="6.0" layoutY="83.0" prefHeight="326.0" prefWidth="965.0">
+                    <columns>
+                      <TableColumn fx:id="clid" minWidth="0.0" prefWidth="0.0" text="Id" />
+                      <TableColumn fx:id="clNom" prefWidth="160.0" text="Nom" />
+                        <TableColumn fx:id="clDate" prefWidth="123.0" text="Date" />
+                        <TableColumn fx:id="clLieux" prefWidth="108.0" text="Lieux" />
+                        <TableColumn fx:id="clPrix" prefWidth="98.0" text="Prix" />
+                        <TableColumn fx:id="clNiveau" prefWidth="78.0" text="Niveau" />
+                        <TableColumn fx:id="clNbrP" prefWidth="93.0" text="Nombe Place" />
+                        <TableColumn fx:id="clProgramme" prefWidth="124.0" text="Programme" />
+                        <TableColumn fx:id="clImage" prefWidth="180.0" text="Path Image" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
