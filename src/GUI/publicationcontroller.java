@@ -209,7 +209,7 @@ Utilisateur u = new Utilisateur();
             path = selectedfile.getAbsolutePath();
 
             File source = new File(path);
-            File destination = new File("C:\\Users\\21622\\Documents\\NetBeansProjects\\gestionCommunité\\src\\img");
+            File destination = new File("C:\\xampp\\htdocs\\devcomimgupload");
 
             FileUtils.copyFileToDirectory(source, destination);
             Image img = new Image(selectedfile.toURI().toString());
@@ -234,7 +234,7 @@ Utilisateur u = new Utilisateur();
         // Get the updated publication details from the UI controls
         
         String updatedContenu = contenu.getText();
-        String updatedUrlImage = path2; // Use the existing URL if no new image is selected
+        String updatedUrlImage = path; // Use the existing URL if no new image is selected
         if (selectedfile != null) {
             updatedUrlImage = selectedfile.toURI().toString();
         }

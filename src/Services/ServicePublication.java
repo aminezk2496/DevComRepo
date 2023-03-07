@@ -46,7 +46,24 @@ public class ServicePublication<pst> implements IService<Publication> {
    
     Connection cnx = MaConnexion.getInstance().getCnx();
     
-        
+         public Publication readPublication(int id) throws SQLException {
+        String sql = "SELECT * FROM publication WHERE id = ?";
+        Publication publication = null;
+        try (PreparedStatement statement = cnx.prepareStatement(sql)) {
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
+            if (result.next()) {
+              publication = new Publication();
+                publication.setId(result.getInt("id"));
+                publication.setIduser(result.getString("iduser"));
+                publication.setContenu(result.getString("contenu"));
+                publication.setUrlimage(result.getString("urlimage"));
+                publication.setDate(result.getDate("date_publication"));
+            }
+        }
+        return publication;
+    }
+
     public void ajouterPub(Publication p ){
         try {
             String requete = "INSERT INTO publication (contenu,iduser,urlimage,date_publication)"
@@ -146,7 +163,7 @@ public class ServicePublication<pst> implements IService<Publication> {
             
           
                Date date = rs.getDate("date_publication");
-              list.add(new Publication(rs.getInt("id"),rs.getString("iduser"),rs.getString("contenu"),rs.getString("urlimage"),rs.getDate("date_publication")));
+              list.add(new Publication(rs.getInt("id"),rs.getString("contenu"),rs.getString("iduser"),rs.getString("urlimage"),rs.getDate("date_publication")));
             }
         }
         catch(SQLException ex){
@@ -192,6 +209,46 @@ public class ServicePublication<pst> implements IService<Publication> {
    
             sub="Signal publlication";
             content="Bonjour Monsieur Administrateur Je voudrais rapporter cette annonce id:("+p.getId()+") et de contenu :( "+p.getContenu()+") par ce qu'elle contient. "+signal+".";
+            Properties properties = new Properties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "587");
+            Session session=Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+                        protected PasswordAuthentication getPasswordAuthentication()
+                        {
+                            return new PasswordAuthentication(from,password);
+                        }
+                    }
+            );
+            try {
+                MimeMessage m =new MimeMessage(session);
+                m.setFrom(from);
+                m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+                m.setSubject(sub);
+                m.setText(content);
+                Transport.send(m);
+                return true;
+
+            } catch (MessagingException e) {
+                e.printStackTrace();
+            }
+      
+
+        return false;
+    }
+  public boolean SendMailConf(String mail,Publication p,String signal )
+    {
+        UtilisateurService us = new UtilisateurService();
+        Utilisateur u =us.getUserData("ali123");
+        String password = "slzwonaplhtpfcww";
+        String from,to,host,sub,content;
+        from = "devcompi2023@gmail.com";
+        to =mail;
+        host="localhost";
+   
+            sub="Signal publlication";
+            content="Bonjour Monsieur votre reclamation pour cette annonce  de contenu :( "+p.getContenu()+") par ce qu'elle contient. "+signal+"a ete bien enregistré.";
             Properties properties = new Properties();
             properties.put("mail.smtp.auth", "true");
             properties.put("mail.smtp.starttls.enable", "true");

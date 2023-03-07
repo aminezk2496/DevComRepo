@@ -14,13 +14,13 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowPubController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #131313;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ShowPubController">
 <children>
-    <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #131022; -fx-background-radius: 15;">
+    <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
         <children>
             <Pane layoutX="626.0" layoutY="-1.0" prefHeight="94.0" prefWidth="370.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@style.css">
                 <children>
-                    <Label fx:id="LbLogUser" layoutX="127.0" layoutY="21.0" text="Amine Hlel" textFill="WHITE">
+                    <Label fx:id="LbLogUser" layoutX="127.0" layoutY="21.0" text="Amine Hlel" textFill="#0a075e">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -42,15 +42,81 @@
                                 </graphic>
                             </Button>
                         </children></Pane>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#RecentPub" prefHeight="66.0" prefWidth="93.0" styleClass="button3" stylesheets="@style.css" text="Recent Pub" textFill="#a868a0">
+                     <graphic>
+                        <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@publication-icon-3%20(1).jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                 </children>
             </VBox>
             <AnchorPane layoutX="91.0" layoutY="78.0" prefHeight="531.0" prefWidth="886.0" style="-fx-background-color: #131022;" stylesheets="@style.css">
                <children>
                   <HBox layoutX="22.0" layoutY="-2.0" prefHeight="539.0" prefWidth="908.0" style="-fx-background-color: #131022;">
                      <children>
-                        <ScrollPane fx:id="UserScrollPane" prefHeight="539.0" prefWidth="862.0" style="-fx-background-color: #131313;-fx-border-color: #131313;">
+                        <ScrollPane fx:id="UserScrollPane" prefHeight="539.0" prefWidth="922.0" style="-fx-background-color: #131313;-fx-border-color: #131313;">
                            <content>
-                              <FlowPane fx:id="flowpane" prefHeight="534.0" prefWidth="852.0" style="-fx-background-color: #131313;;" />
+                              <HBox prefHeight="537.0" prefWidth="910.0">
+                                 <children>
+                                    <FlowPane fx:id="flowpane1" prefHeight="538.0" prefWidth="164.0" style="-fx-background-color: #131022;" />
+                                    <VBox prefHeight="538.0" prefWidth="501.0">
+                                       <children>
+                                          <FlowPane fx:id="flowpane2" layoutX="10.0" layoutY="10.0" prefHeight="240.0" prefWidth="157.0" style="-fx-background-color: #131022;">
+                                             <children>
+                                                <AnchorPane prefHeight="444.0" prefWidth="600.0" style="-fx-background-color: #030307;" stylesheets="@../styles/style.css">
+                                                   <children>
+                                                      <Pane layoutX="34.0" layoutY="-7.0" prefHeight="74.0" prefWidth="502.0" style="-fx-background-color: #030307;">
+                                                         <children>
+                                                            <Label layoutX="31.0" layoutY="-7.0" prefHeight="88.0" prefWidth="486.0" style="-fx-background-color: #030307;" styleClass="button3" stylesheets="@style.css" text="Ajouter PUBLICATION" textAlignment="CENTER" textFill="#231ca1">
+                                                               <font>
+                                                                  <Font name="Gloucester MT Extra Condensed" size="73.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                      <VBox layoutX="12.0" layoutY="79.0" prefHeight="246.0" prefWidth="112.0" spacing="15.0">
+                                                         <children>
+                                                            <Label prefHeight="70.0" prefWidth="98.0" text="Contenu" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="idimg" text="Image" textFill="WHITE" visible="false">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Button fx:id="image" mnemonicParsing="false" onAction="#importerImageUpdate" prefHeight="69.0" prefWidth="102.0" styleClass="button3" stylesheets="@style.css">
+                                                               <graphic>
+                                                                  <ImageView fitHeight="39.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@ajouter-une-image.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                               </graphic>
+                                                            </Button>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="128.0" layoutY="76.0" prefHeight="396.0" prefWidth="253.0" spacing="15.0">
+                                                         <children>
+                                                            <TextField fx:id="Contenu" prefHeight="90.0" prefWidth="204.0" style="-fx-background-color: #030307; -fx-border-color: #fff; -fx-border-radius: 10; -fx-text-fill: FFFFFF;" />
+                                                            <ImageView fx:id="imageV" fitHeight="288.0" fitWidth="292.0" pickOnBounds="true" preserveRatio="true" />
+                                                         </children>
+                                                      </VBox>
+                                                      <Button fx:id="ADD" layoutX="38.0" layoutY="332.0" mnemonicParsing="false" onAction="#CreatePub" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10;" text="Ajouter" textFill="WHITE" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </FlowPane>
+                                          <FlowPane fx:id="flowpane" prefHeight="282.0" prefWidth="502.0" style="-fx-background-color: #131022;" />
+                                       </children>
+                                    </VBox>
+                                    <FlowPane fx:id="flowpane11" prefHeight="538.0" prefWidth="227.0" style="-fx-background-color: #131022;" />
+                                 </children>
+                              </HBox>
                            </content>
                         </ScrollPane>
                      </children>

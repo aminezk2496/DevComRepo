@@ -93,10 +93,11 @@ public class CommentaireController {
      public void setDataCom(Commentaire c) {
          CommentaireLabel.setText(c.getContenuc());
          id=c.getId();
-         if((c.getIduser().equals(u.getLoginUtilisateur())) || u.getRankUtilisateur()==0 )
+         if((c.getIduser().equals(u.getLoginUtilisateur())) || u.getRankUtilisateur()==2 )
         {
             ModifierCom.setVisible(true);
             SuppCom.setVisible(true);
+            
         }
          else 
          {
@@ -126,7 +127,7 @@ public class CommentaireController {
             stage.setUserData(C);
             Scene s = new Scene (anchor1);
             stage.setScene(s);
-            stage.setTitle("Modifier Utilisateur");
+            stage.setTitle("Modifier Commentaire");
             stage.show();
             
 

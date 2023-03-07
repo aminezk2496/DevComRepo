@@ -31,8 +31,8 @@ public class ModifierCommentaireController {
 
     @FXML
     private TextField Contenu;
-    @FXML
-    private Button GetData;
+      
+  
      @FXML
     private Button DoUpdate;
     /*private static ModifierUserController instance;

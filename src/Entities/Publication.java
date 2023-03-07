@@ -81,6 +81,7 @@ public class Publication {
     public String toString() {
         return "publication{" + "id=" + ID + ", contenu=" + contenu + ", iduser=" + iduser + ", urlimage=" + urlimage+ " , date publication="+date_publication+'}';
     }
+
 }
 
 
