@@ -191,6 +191,7 @@ public class PublicationController1 {
             List<Commentaire> updatedList = new ArrayList<>();
             updatedList.add(c);
             setDataComs(updatedList);
+             commentaire.setText(null);
 
         }
 

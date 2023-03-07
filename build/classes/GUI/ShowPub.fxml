@@ -20,7 +20,7 @@
         <children>
             <Pane layoutX="626.0" layoutY="-1.0" prefHeight="94.0" prefWidth="370.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@style.css">
                 <children>
-                    <Label fx:id="LbLogUser" layoutX="127.0" layoutY="21.0" text="Amine Hlel" textFill="#0a075e">
+                    <Label fx:id="LbLogUser" layoutX="127.0" layoutY="21.0" text="yahya" textFill="#0a075e">
                         <font>
                             <Font size="18.0" />
                         </font>
@@ -128,7 +128,7 @@
                     <Image url="@logo.png" />
                 </image>
             </ImageView>
-            <Label layoutX="134.0" layoutY="29.0" text="Pidevers-Team" textFill="WHITE">
+            <Label layoutX="134.0" layoutY="29.0" text="Devcom-Team" textFill="WHITE">
                 <font>
                     <Font size="13.0" />
                 </font>

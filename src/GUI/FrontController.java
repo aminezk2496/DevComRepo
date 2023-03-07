@@ -161,7 +161,7 @@ public class FrontController {
             fxmlLoader = new FXMLLoader(Main.class.getResource("ShowPub.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader.load(), 993, 616);
-            stage.setTitle("Welcome To Events Space");
+            stage.setTitle("Welcome To Post Space");
             stage.setScene(scene);
             stage.show();
         

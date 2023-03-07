@@ -3,14 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/21622/Desktop/devcom/src/GUI/ShowPubController.java</file>
-            <file>file:/C:/Users/21622/Desktop/devcom/src/Services/UtilisateurService.java</file>
-            <file>file:/C:/Users/21622/Desktop/devcom/src/GUI/GestionGererUsersController.java</file>
-            <file>file:/C:/Users/21622/Desktop/devcom/src/GUI/PublicationController1.java</file>
-            <file>file:/C:/Users/21622/Desktop/devcom/src/Services/BadWords.java</file>
-            <file>file:/C:/Users/21622/Desktop/devcom/src/GUI/CommentaireController.java</file>
-            <file>file:/C:/Users/21622/Desktop/devcom/src/GUI/ModifierCommentaireController.java</file>
-            <file>file:/C:/Users/21622/Desktop/devcom/src/Services/ServicePublication.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/GUI/ShowPubController.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/GUI/ModifierPublicationController.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/GUI/ModifierCommentaireController.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/GUI/PublicationController1.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/GUI/Main.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/GUI/CommentaireController.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/Services/ServicePublication.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/GUI/FrontController.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/GUI/LoginController.java</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/21622/Desktop/Nouveau%20dossier%20(3)/DiscoverTn-DevCom/src/Tools/MaConnexion.java</file>
         </group>
     </open-files>
 </project-private>

@@ -120,7 +120,8 @@ public class ShowPubController {
         fc.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image", "*.jpg", "*.png"),
                 new FileChooser.ExtensionFilter("PNG", "*.png"),
-                new FileChooser.ExtensionFilter("JPG", "*.jpg")
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                 new FileChooser.ExtensionFilter("JPEG", "*.jpeg")
         );
         selectedfile = fc.showOpenDialog(null);
 
@@ -130,9 +131,10 @@ public class ShowPubController {
 
             File source = new File(path);
             File destination = new File("C:\\xampp\\htdocs\\devcomimgupload");
-
+            
             FileUtils.copyFileToDirectory(source, destination);
             Image img = new Image(selectedfile.toURI().toString());
+            
             image.setText(path);
             imageV.setImage(img);
 
@@ -247,7 +249,7 @@ public class ShowPubController {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succès");
             alert.setHeaderText(null);
-            alert.setContentText("Reclamation Enregistré avec succés");
+            alert.setContentText("Publications Creé avec succés");
             alert.showAndWait();
             Contenu.clear();
             imageV.setImage(null);
