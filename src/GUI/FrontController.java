@@ -139,14 +139,14 @@ public class FrontController {
             ex.printStackTrace();
         }
     }
-    public  void switchToEvenement(ActionEvent event) throws IOException{
+     public  void switchToEvenement(ActionEvent event) throws IOException{
         Utilisateur u = new Utilisateur();
         UtilisateurService us =new UtilisateurService();
         u = (Utilisateur) UserSession.INSTANCE.get("user");
         if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2){
-            fxmlLoader = new FXMLLoader(Main.class.getResource("GestionEvenement.fxml"));
-        }else{
             fxmlLoader = new FXMLLoader(Main.class.getResource("GestionEvenementAdmin.fxml"));
+        }else{
+            fxmlLoader = new FXMLLoader(Main.class.getResource("GestionEvenement.fxml"));
         }
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load(), 993, 616);
@@ -155,52 +155,80 @@ public class FrontController {
         stage.show();
     }
     public  void switchToRand(ActionEvent event) throws IOException{
-        fxmlLoader = new FXMLLoader(Main.class.getResource("listMuseum.fxml"));
+         Utilisateur u = new Utilisateur();
+        u = (Utilisateur) UserSession.INSTANCE.get("user");
+    
+                if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2) {
+        fxmlLoader = new FXMLLoader(Main.class.getResource("Admin.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load(), 993, 616);
         stage.setTitle("Welcome To Events Space");
         stage.setScene(scene);
         stage.show();
-    }
+    } else {
+            fxmlLoader = new FXMLLoader(Main.class.getResource("Client.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(fxmlLoader.load(), 993, 616);
+            stage.setTitle("Welcome To Hergement Reservation");
+            stage.setScene(scene);
+            stage.show();
+        }}
 
     @FXML
     void switchToBlog(ActionEvent event) throws IOException {
-        Utilisateur u = new Utilisateur();
-        u = (Utilisateur) UserSession.INSTANCE.get("user");
-        if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2) {
-            fxmlLoader = new FXMLLoader(Main.class.getResource("GestionBlogBackup.fxml"));
+            fxmlLoader = new FXMLLoader(Main.class.getResource("ShowPub.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(fxmlLoader.load(), 993, 616);
             stage.setTitle("Welcome To Events Space");
             stage.setScene(scene);
             stage.show();
-        } else {
-            fxmlLoader = new FXMLLoader(Main.class.getResource("GestionBlog.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(fxmlLoader.load(), 993, 616);
-            stage.setTitle("Welcome To Events Space");
-            stage.setScene(scene);
-            stage.show();
-        }
+        
     }
     @FXML
     void switchToHotel(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(Main.class.getResource("GestionHotel.fxml"));
+         Utilisateur u = new Utilisateur();
+        u = (Utilisateur) UserSession.INSTANCE.get("user");
+    
+                if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2) {
+
+        fxmlLoader = new FXMLLoader(Main.class.getResource("Hebergement.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load(), 993, 616);
-        stage.setTitle("Welcome To Hotels Space");
+        stage.setTitle("Welcome To Admin Interface");
         stage.setScene(scene);
         stage.show();
     }
+                  else {
+            fxmlLoader = new FXMLLoader(Main.class.getResource("reservation.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(fxmlLoader.load(), 993, 616);
+            stage.setTitle("Welcome To Hergement Reservation");
+            stage.setScene(scene);
+            stage.show();
+        }}
+    
     @FXML
     void switchToCamping(ActionEvent event) throws IOException {
-        fxmlLoader = new FXMLLoader(Main.class.getResource("GestionCamping.fxml"));
+          Utilisateur u = new Utilisateur();
+        u = (Utilisateur) UserSession.INSTANCE.get("user");
+    
+         if (u.getRankUtilisateur() == 1 || u.getRankUtilisateur() == 2) {
+        fxmlLoader = new FXMLLoader(Main.class.getResource("FXML1.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(fxmlLoader.load(), 993, 616);
-        stage.setTitle("Welcome To Campings Space");
+        stage.setTitle("Welcome To Voitures");
         stage.setScene(scene);
         stage.show();
-    }
+    } else {
+            fxmlLoader = new FXMLLoader(Main.class.getResource("FXMLDocument.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(fxmlLoader.load(), 993, 616);
+            stage.setTitle("Welcome To Locations Reservation");
+            stage.setScene(scene);
+            stage.show();
+        }}
+       
+    
 
     @FXML
     void switchToGererUsers(ActionEvent event) throws IOException {

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FXML1Controller">
+<children>
+    <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #131022; -fx-background-radius: 15;">
+        <children>
+            <Pane layoutX="626.0" layoutY="-1.0" prefHeight="94.0" prefWidth="370.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@style.css">
+                <children>
+                    <Label fx:id="LbLogUser" layoutX="127.0" layoutY="21.0" text="Rihem" textFill="WHITE">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                  <Circle fx:id="idimg1" fill="DODGERBLUE" layoutX="309.0" layoutY="35.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+                </children>
+            </Pane>
+            <VBox prefHeight="544.0" prefWidth="74.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                    <Pane prefHeight="79.0" prefWidth="74.0" style="-fx-background-radius: 15 0 15 15;">
+                        <children>
+                            <Button contentDisplay="TOP" layoutY="12.0" mnemonicParsing="false" onAction="#switchToMainFront" prefHeight="66.0" prefWidth="74.0" styleClass="button3" stylesheets="@style.css" text="MainPage" textFill="#a868a0">
+                                <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@cat.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </children></Pane>
+                </children>
+            </VBox>
+            <AnchorPane layoutX="91.0" layoutY="78.0" prefHeight="531.0" prefWidth="886.0" style="-fx-background-color: #131022;" stylesheets="@style.css">
+               <children>
+                  <HBox layoutX="22.0" layoutY="-2.0" prefHeight="539.0" prefWidth="908.0" style="-fx-background-color: #131022;">
+                     <children>
+                        <ScrollPane fx:id="UserScrollPane" prefHeight="1100" prefWidth="1100" style="-fx-background-color: #131313;-fx-border-color: #131313;">
+                           <content>
+                              <FlowPane fx:id="flowpane" prefHeight="1100" prefWidth="1100" style="-fx-background-color: #131313;;" />
+                         <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../../Desktop/style.css" >
+   <children>
+      <Text layoutX="22.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="serie">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtSerie" layoutX="72.0" layoutY="114.0" prefHeight="32.0" prefWidth="128.0" />
+      <Text layoutX="13.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="marque">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtMarque" layoutX="72.0" layoutY="164.0" prefHeight="32.0" prefWidth="128.0" />
+      <Text layoutX="16.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nb_chv">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtChv" layoutX="72.0" layoutY="210.0" prefHeight="32.0" prefWidth="128.0" />
+      <Text layoutX="22.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="type">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TableView fx:id="table" layoutX="245.0" layoutY="114.0" prefHeight="200.0" prefWidth="331.0">
+        <columns>
+          <TableColumn fx:id="serieColmn" text="serie" />
+          <TableColumn fx:id="marqueColmn" prefWidth="77.0" text="marque" />
+            <TableColumn fx:id="chvColmn" prefWidth="96.0" text="nb_chv" />
+            <TableColumn fx:id="typeColmn" prefWidth="77.0" text="type" />
+        </columns>
+      </TableView>
+      <Text fill="#cd944f" layoutX="202.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VOITURES">
+         <font>
+            <Font name="Webdings" size="42.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnAdd" layoutX="53.0" layoutY="302.0" mnemonicParsing="false" onAction="#Add" text="AJOUTER" />
+      <Button fx:id="btnUpdate" layoutX="139.0" layoutY="302.0" mnemonicParsing="false" onAction="#Update" text="MODIFIER" />
+      <Button fx:id="btnDelete" layoutX="93.0" layoutY="341.0" mnemonicParsing="false" onAction="#Delete" text="SUPRIMER" />
+      <TextField fx:id="txtType" layoutX="72.0" layoutY="248.0" prefHeight="32.0" prefWidth="128.0" />
+      <Button fx:id="btnAdd1" layoutX="26.0" layoutY="27.0" mnemonicParsing="false" onAction="#Reservations" text="Reservations" />
+   </children>
+</AnchorPane>
+
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@logo.png" />
+                </image>
+            </ImageView>
+            <Label layoutX="134.0" layoutY="29.0" text="Devcom-Team" textFill="WHITE">
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+      <TextField fx:id="FindContenu" layoutX="380.0" layoutY="34.0"  prefHeight="19.0" prefWidth="204.0" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10; -fx-text-fill: FFFFFF;" />
+      <Label layoutX="288.0" layoutY="38.0" text="Rechercher" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+</children>
+</AnchorPane>

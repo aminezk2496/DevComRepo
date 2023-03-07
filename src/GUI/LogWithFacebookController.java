@@ -74,12 +74,18 @@ public class LogWithFacebookController {
     void login_as_facebook(ActionEvent event) {
         gotoSignup.setVisible(false);
         WebView webView = new WebView();
+        
         WebEngine eg = webView.getEngine();
+        
         Pane wView = new Pane();
+        wView.autosize();
         wView.getChildren().add(webView);
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(new Scene(wView,800,500));
+        stage.fullScreenExitHintProperty();
+        stage.fullScreenExitKeyProperty();
+        stage.fullScreenProperty();
         stage.show();
         eg.load(authentication);
         eg.locationProperty().addListener((obs,oldlocation,newlocation) ->{

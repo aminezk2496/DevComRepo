@@ -27,6 +27,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,6 +36,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -42,6 +44,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
@@ -50,6 +54,18 @@ import javax.swing.JOptionPane;
  * @author Amal
  */
 public class GestionEvenementAdmin  implements Initializable {
+    
+       @FXML
+    private javafx.scene.control.Label LbLogUser;
+ @FXML
+    private Circle idimg1;
+  @FXML
+    private ScrollPane UserScrollPane;
+ 
+    @FXML
+    private TextField FindContenu;
+     Utilisateur u = new Utilisateur();
+    UtilisateurService us = new UtilisateurService();
     private Label label;
     private TextField id_event;
     private TextField titre_event;
@@ -121,6 +137,18 @@ public class GestionEvenementAdmin  implements Initializable {
     Connection con = MaConnexion.getInstance().getCnx();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+           u = (Utilisateur) UserSession.INSTANCE.get("user");
+        LbLogUser.setText(u.getLoginUtilisateur());
+
+        String path = null;
+        try {
+            path = us.LoadIMG(u);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        File f = new File(path);
+        javafx.scene.image.Image img = new javafx.scene.image.Image("file:" + f.getAbsolutePath());
+        idimg1.setFill(new ImagePattern(img));
         
         bdelete.setVisible(false);
         bupdate.setVisible(false);
@@ -424,4 +452,13 @@ public class GestionEvenementAdmin  implements Initializable {
         bupdate.setVisible(false);
         clear();
     }
+    @FXML
+     void switchToMainFront(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainFront.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
+

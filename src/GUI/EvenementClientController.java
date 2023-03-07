@@ -9,6 +9,7 @@ import Entities.Utilisateur;
 import Services.UserSession;
 import Services.UtilisateurService;
 import Tools.MaConnexion;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -39,6 +40,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
@@ -46,6 +49,21 @@ import javafx.stage.Stage;
  * @author Amal
  */
 public class EvenementClientController implements Initializable {
+     @FXML
+    private Label LbLogUser;
+ @FXML
+    private Circle idimg1;
+  @FXML
+    private ScrollPane UserScrollPane;
+ 
+    @FXML
+    private TextField FindContenu;
+     Utilisateur u = new Utilisateur();
+    UtilisateurService us = new UtilisateurService();
+
+    
+    
+    
     private Label label;
     private TextField id_event;
     private TextField titre_event;
@@ -123,6 +141,18 @@ public class EvenementClientController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+          u = (Utilisateur) UserSession.INSTANCE.get("user");
+        LbLogUser.setText(u.getLoginUtilisateur());
+
+        String path = null;
+        try {
+            path = us.LoadIMG(u);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        File f = new File(path);
+        javafx.scene.image.Image img = new javafx.scene.image.Image("file:" + f.getAbsolutePath());
+        idimg1.setFill(new ImagePattern(img));
         
         affiche();
         affichePart();
@@ -137,7 +167,7 @@ public class EvenementClientController implements Initializable {
         return localDate;
     }
     @FXML 
-   /* private void tablehandleButtonAction() {
+    private void tablehandleButtonAction() {
         bdelete.setVisible(true);
         bsave.setVisible(false);
         bupdate.setVisible(true);
@@ -151,7 +181,7 @@ public class EvenementClientController implements Initializable {
         lien_ch.setText(et.getLieuEvent());
         desc_ch.setText(et.getDescEvent());
         image_ch.setText(et.getImageEvent());
-    }*/
+    }
  
     public ObservableList<Evenement> getEvenement(String searchText) {
         ObservableList<Evenement> list = FXCollections.observableArrayList();
@@ -283,6 +313,14 @@ public class EvenementClientController implements Initializable {
             System.out.println(e);
         }
         
+    }
+     @FXML
+    void switchToMainFront(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainFront.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
  
 }

@@ -10,8 +10,11 @@ package GUI;
  * @author Amine
  */
 
-import Entities.Utilisateur;
-import Services.UtilisateurService;
+
+import Entities.Hebergement;
+import Services.CRUDHebergement;
+import Entities.Reservation;
+import Services.CRUDReservation;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -25,7 +28,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
       FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 600);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 600);
         stage.setTitle("DevCom !");
         //Image icon = new Image(getClass().getResourceAsStream("/imgs/elliot.png"));
        //stage.getIcons().add(icon);

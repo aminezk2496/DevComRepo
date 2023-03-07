@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+      
+            
+
+
+
+
+
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HebergementController">
+<children>
+    <AnchorPane prefHeight="616.0" prefWidth="993.0" style="-fx-background-color: #131022; -fx-background-radius: 15;">
+        <children>
+            <Pane layoutX="626.0" layoutY="-1.0" prefHeight="94.0" prefWidth="370.0" style="-fx-background-radius: 20 20 0 0;" styleClass="linear-grad" stylesheets="@style.css">
+                <children>
+                    <Label fx:id="LbLogUser" layoutX="127.0" layoutY="21.0" text="Rihem" textFill="WHITE">
+                        <font>
+                            <Font size="18.0" />
+                        </font>
+                    </Label>
+                  <Circle fx:id="idimg1" fill="DODGERBLUE" layoutX="309.0" layoutY="35.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+                </children>
+            </Pane>
+            <VBox prefHeight="544.0" prefWidth="74.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <children>
+                    <Pane prefHeight="79.0" prefWidth="74.0" style="-fx-background-radius: 15 0 15 15;">
+                        <children>
+                            <Button contentDisplay="TOP" layoutY="12.0" mnemonicParsing="false" onAction="#switchToMainFront" prefHeight="66.0" prefWidth="74.0" styleClass="button3" stylesheets="@style.css" text="MainPage" textFill="#a868a0">
+                                <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                        <image>
+                                            <Image url="@cat.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </children></Pane>
+                </children>
+            </VBox>
+            <AnchorPane layoutX="91.0" layoutY="78.0" prefHeight="531.0" prefWidth="886.0" style="-fx-background-color: #131022;" stylesheets="@style.css">
+               <children>
+                  <HBox layoutX="22.0" layoutY="-2.0" prefHeight="539.0" prefWidth="908.0" style="-fx-background-color: #131022;">
+                     <children>
+                        <ScrollPane fx:id="UserScrollPane" prefHeight="539.0" prefWidth="862.0" style="-fx-background-color: #131313;-fx-border-color: #131313;">
+                           <content>
+                              <FlowPane fx:id="flowpane" prefHeight="534.0" prefWidth="852.0" style="-fx-background-color: #131313;;" />
+                             <AnchorPane layoutX="91.0" layoutY="84.0" prefHeight="531.0" prefWidth="886.0" style="-fx-background-color: #131022;" stylesheets="@style.css">
+             <children>
+      <AnchorPane layoutX="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1107.0">
+         <children>
+            <TextField fx:id="tfNom" layoutX="120.0" layoutY="11.0" prefHeight="31.0" prefWidth="310.0" />
+            <Text fill="WHITE" layoutX="454.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+            <Text fill="WHITE" layoutX="-1.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nb de chambre" />
+            <Text fill="WHITE" layoutX="3.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix" wrappingWidth="53.00000977516174" />
+            <Text fill="WHITE" layoutX="1.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Localisation" />
+            <Text fill="WHITE" layoutX="6.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact" wrappingWidth="76.0" />
+            <TextField fx:id="tfImage" layoutX="120.0" layoutY="129.0" prefHeight="31.0" prefWidth="310.0" />
+            <Text fill="WHITE" layoutX="275.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
+            <ComboBox fx:id="comboType" editable="true" layoutX="316.0" layoutY="168.0" prefHeight="31.0" prefWidth="115.0" visibleRowCount="9" />
+            <Button fx:id="btnAjout" layoutX="1008.0" layoutY="168.0" mnemonicParsing="false" onAction="#saveHeber" prefHeight="31.0" prefWidth="94.0" text="Ajouter" />
+            <Button fx:id="btnModifier" layoutX="1.0" layoutY="722.0" mnemonicParsing="false" onAction="#updatedHeber" prefHeight="31.0" prefWidth="124.0" text="Modifier" />
+            <Label layoutX="6.0" layoutY="18.0" text="Nom" textFill="WHITE" />
+            <TextField fx:id="tfPrix" layoutX="120.0" layoutY="51.0" prefHeight="26.0" prefWidth="310.0" />
+            <TextArea fx:id="tfDesc" layoutX="531.0" layoutY="14.0" prefHeight="146.0" prefWidth="571.0" />
+            <TextField fx:id="tfId" layoutX="3.0" layoutY="682.0" prefHeight="26.0" prefWidth="326.0" />
+            <Button fx:id="tfSuppprimer" layoutX="217.0" layoutY="722.0" mnemonicParsing="false" onAction="#deleteHeber" prefHeight="31.0" prefWidth="115.0" text="Supprimer" />
+            <TableView fx:id="tbHebergement" layoutX="6.0" layoutY="212.0" onSort="#viewHeber" prefHeight="462.0" prefWidth="1095.0">
+              <columns>
+                <TableColumn fx:id="tbId" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="tbNom" prefWidth="75.0" text="Nom" />
+                  <TableColumn fx:id="tbDesc" prefWidth="210.39999389648438" text="Description" />
+                  <TableColumn fx:id="tbNb_ch" minWidth="0.0" prefWidth="117.5999755859375" text="Nb Chambre" />
+                  <TableColumn fx:id="tbPrix" prefWidth="105.5999755859375" text="Prix" />
+                  <TableColumn fx:id="tbLoca" minWidth="4.79998779296875" prefWidth="196.79998779296875" text="Localisation" />
+                  <TableColumn fx:id="tbContact" prefWidth="164.800048828125" text="Contact" />
+                  <TableColumn fx:id="tbType" prefWidth="153.5999755859375" text="Type" />
+              </columns>
+            </TableView>
+            <Button fx:id="btSearch" layoutX="352.0" layoutY="682.0" mnemonicParsing="false" onAction="#search" prefHeight="26.0" prefWidth="132.0" text="Rechercher" />
+            <ComboBox fx:id="comboTri" editable="true" layoutX="950.0" layoutY="682.0" onAction="#triHeber" prefWidth="150.0" promptText="Tri" />
+            <ComboBox fx:id="comboLoc" editable="true" layoutX="120.0" layoutY="170.0" prefHeight="31.0" prefWidth="124.0" />
+            <TextField fx:id="tfNb_ch" layoutX="120.0" layoutY="91.0" prefHeight="26.0" prefWidth="310.0" />
+            <TextField fx:id="recupId" editable="false" layoutX="514.0" layoutY="683.0" opacity="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
+
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="91.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@logo.png" />
+                </image>
+            </ImageView>
+            <Label layoutX="134.0" layoutY="29.0" text="Devcom-Team" textFill="WHITE">
+                <font>
+                    <Font size="13.0" />
+                </font>
+            </Label>
+        </children>
+    </AnchorPane>
+      <TextField fx:id="FindContenu" layoutX="380.0" layoutY="34.0"  prefHeight="19.0" prefWidth="204.0" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10; -fx-text-fill: FFFFFF;" />
+      <Label layoutX="288.0" layoutY="38.0" text="Rechercher" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+</children>
+</AnchorPane>

@@ -1,14 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Services;
-
-/**
- *
- * @author Amine
- */
 
 import Entities.Reclamation;
 import Entities.Utilisateur;
@@ -97,12 +87,39 @@ public class ReclamationService implements IService<Reclamation>{
 
 
     }
+
+    public ObservableList<Reclamation> afficherbynom(String rec)
+    {
+        ObservableList<Reclamation> reclamations = FXCollections.observableArrayList();
+        String query = "SELECT * FROM reclamation where etat_reclamation='Pending'and nom_utilisateur  LIKE '%"+rec+"%'";
+        try {
+            PreparedStatement ste = cnx.prepareStatement(query);
+            ste.executeQuery();
+            ResultSet rs = ste.executeQuery(query);
+            while (rs.next()) {
+
+                Reclamation reclamation = new Reclamation();
+                reclamation.setId_reclamation(rs.getInt("id_reclamation"));
+                reclamation.setDescription_reclamation(rs.getString("description_reclamation"));
+                reclamation.setPrenom_utilisateur(rs.getString("prenom_utilisateur"));
+                reclamation.setNom_utilisateur(rs.getString("nom_utilisateur"));
+                reclamation.setEmail_utilisateur(rs.getString("email_utilisateur"));
+                reclamation.setEtat_reclamation(rs.getString("etat_reclamation"));
+
+                reclamations.add(reclamation);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return reclamations;
+
+
+    }
     public boolean CloseRec(String email)
     {
         String update = "UPDATE RECLAMATION set etat_reclamation='Replied' where email_utilisateur= '" + email + "'";
         try {
             store = cnx.prepareStatement(update);
-
             store.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -115,9 +132,9 @@ public class ReclamationService implements IService<Reclamation>{
         UtilisateurService us = new UtilisateurService();
         Utilisateur UserTo= new Utilisateur();
         UserTo=us.getUserDataWithEmail(email);
-        String password = "Testtest123";
+        String password = "slzwonaplhtpfcww";
         String from,to,host,sub,content;
-        from = "pidevers3a10@gmail.com";
+        from = "devcompi2023@gmail.com";
         to =UserTo.getEmailUtilisateur();
         host="localhost";
 
@@ -160,33 +177,4 @@ public class ReclamationService implements IService<Reclamation>{
     public void supprimer(Reclamation reclamation) {
 
     }
-    
-    public ObservableList<Reclamation> afficherbynom(String rec)
-    {
-        ObservableList<Reclamation> reclamations = FXCollections.observableArrayList();
-        String query = "SELECT * FROM reclamation where etat_reclamation='Pending'and nom_utilisateur  LIKE '%"+rec+"%'";
-        try {
-            PreparedStatement ste = cnx.prepareStatement(query);
-            ste.executeQuery();
-            ResultSet rs = ste.executeQuery(query);
-            while (rs.next()) {
-
-                Reclamation reclamation = new Reclamation();
-                reclamation.setId_reclamation(rs.getInt("id_reclamation"));
-                reclamation.setDescription_reclamation(rs.getString("description_reclamation"));
-                reclamation.setPrenom_utilisateur(rs.getString("prenom_utilisateur"));
-                reclamation.setNom_utilisateur(rs.getString("nom_utilisateur"));
-                reclamation.setEmail_utilisateur(rs.getString("email_utilisateur"));
-                reclamation.setEtat_reclamation(rs.getString("etat_reclamation"));
-
-                reclamations.add(reclamation);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return reclamations;
-
-
-    }
 }
-

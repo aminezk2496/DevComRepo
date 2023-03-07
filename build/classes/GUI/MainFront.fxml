@@ -288,7 +288,7 @@
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </Label>
-                  <Button fx:id="Reclamation" layoutX="288.0" layoutY="602.0" mnemonicParsing="false" onAction="#Reclamation" prefHeight="62.0" prefWidth="220.0" style="-fx-background-color: #FA2C56; -fx-border-color: #fff; -fx-border-radius: 10;" text="Faire un reclamation" textFill="WHITE" />
+                  <Button fx:id="Reclamation" layoutX="288.0" layoutY="602.0" mnemonicParsing="false" onAction="#Reclamation" prefHeight="62.0" prefWidth="220.0" style="-fx-background-color: #FA2C56; -fx-border-color: #fff; -fx-border-radius: 10;" text="Nous contacter" textFill="WHITE" />
                     </children>
                 </Pane>
             </children>

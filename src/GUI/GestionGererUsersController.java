@@ -146,24 +146,7 @@ if (u.getRankUtilisateur()==1)
     }
     public void clearData() {
 
-        for (int x = 0; x < UserGridPane.getColumnConstraints().size(); x++) {
-            for (int i = 0; i < UserGridPane.getRowConstraints().size(); i++) {
-                {
-                   removeNodeByRowColumnIndex(i, x, UserGridPane);
-                }
-            }
-        }
-    }
-
-    public boolean removeNodeByRowColumnIndex(final int row, final int column, GridPane gridPane) {
-        ObservableList<Node> childrens = gridPane.getChildren();
-        for (Node node : childrens) {
-            if (gridPane.getRowIndex(node) == row && gridPane.getColumnIndex(node) == column) {
-                gridPane.getChildren().remove(node);
-                return true;
-            }
-        }
-        return false;
+       UserGridPane.getChildren().clear();
     }
     @FXML
     void switchToMainFront(ActionEvent event) throws IOException {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox fx:id="vboxUser" alignment="CENTER" prefHeight="91.0" prefWidth="489.0" style="-fx-background-color: #131022; -fx-border-radius: 25; -fx-background-radius: 20; -fx-border-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CommentaireController">
+<children>
+    <HBox fx:id="HboxUser" prefHeight="42.0" prefWidth="485.0" style="-fx-background-color: #131022;">
+        <VBox.margin>
+            <Insets left="10.0" />
+        </VBox.margin>
+         <children>
+            <Circle fx:id="ImageUser" fill="#393351" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="LoginUser" prefHeight="37.0" prefWidth="322.0" text="Login" textFill="WHITE" />
+            <Button fx:id="SuppCom" mnemonicParsing="false" onAction="#DropUser" prefHeight="27.0" prefWidth="65.0" style="-fx-background-color: #131022; -fx-border-radius: 10; -fx-border-color: #fff;" text="Supprimer" textFill="RED" />
+            <Button fx:id="ModifierCom" mnemonicParsing="false" onAction="#UpdateCom" prefHeight="27.0" prefWidth="61.0" style="-fx-background-color: #131022; -fx-border-color: #fff; -fx-border-radius: 10;" text="Modifier" textFill="#6a9e60" />
+         </children>
+    </HBox>
+      <Label fx:id="CommentaireLabel" prefHeight="33.0" prefWidth="429.0" textFill="WHITE" />
+</children>
+</VBox>

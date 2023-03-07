@@ -81,7 +81,7 @@
                     <Image url="@logo.png" />
                 </image>
             </ImageView>
-            <Label layoutX="134.0" layoutY="29.0" text="Pidevers-Team" textFill="WHITE">
+            <Label layoutX="134.0" layoutY="29.0" text="Devcom-Team" textFill="WHITE">
                 <font>
                     <Font size="13.0" />
                 </font>
