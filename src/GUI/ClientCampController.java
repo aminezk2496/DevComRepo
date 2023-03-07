@@ -108,6 +108,14 @@ public void search(String searchTerm) {
             Label descriptionLabel = new Label(description);
             Button Participer =new Button("Participer");
             Participer.setOnAction(event -> {
+             String attachmentPath = "/path/to/attachment/file.pdf";
+    String from="rihem.drissi@esprit.tn";
+    String pass="223JFT5378";
+    String[] to = {"rihem.dsi@gmail.com"};
+    String subject = "Participation Mail";
+    String body = "<h1> Votre Nouvelle Participation </h1> <br/> <h2><b>Camping </b></h2> "+name+"<br/> <h2><b>Montant </b></h2>"+price+"<br/> <h2><b>Date </b></h2>"+dateD;
+    
+    sendFromGMail(from, pass, to, subject, body);
                 // Enregistrement de la participation dans la base de données
                try{
                    int nbP = CalculerRep(Id_Client);
@@ -198,6 +206,14 @@ public void search(String searchTerm) {
                 Label descriptionLabel = new Label(description);
                 Button Participer =new Button("Participer");
                 Participer.setOnAction(event -> {
+                 String attachmentPath = "/path/to/attachment/file.pdf";
+    String from="rihem.drissi@esprit.tn";
+    String pass="223JFT5378";
+    String[] to = {"rihem.dsi@gmail.com"};
+    String subject = "Participation Mail";
+    String body = "<h1> Votre Nouvelle Participation </h1> <br/> <h2><b>Camping </b></h2> "+name+"<br/> <h2><b>Montant </b></h2>"+price+"<br/> <h2><b>Date </b></h2>"+dateD;
+    
+    sendFromGMail(from, pass, to, subject, body);
                     // Enregistrement de la participation dans la base de données
                    try{
                        int nbP = CalculerRep(Id_Client);
