@@ -34,7 +34,7 @@ public class Participation {
         this.id_utilisateur= id_utilisateur;
     }
     
-    public Integer getIdEvent() {
+    public Integer getIdParti() {
         return id_Parti;
     }
     public void setIdParti(Integer id_Parti) {

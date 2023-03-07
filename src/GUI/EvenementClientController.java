@@ -137,7 +137,7 @@ public class EvenementClientController implements Initializable {
         return localDate;
     }
     @FXML 
-    private void tablehandleButtonAction() {
+   /* private void tablehandleButtonAction() {
         bdelete.setVisible(true);
         bsave.setVisible(false);
         bupdate.setVisible(true);
@@ -151,7 +151,7 @@ public class EvenementClientController implements Initializable {
         lien_ch.setText(et.getLieuEvent());
         desc_ch.setText(et.getDescEvent());
         image_ch.setText(et.getImageEvent());
-    }
+    }*/
  
     public ObservableList<Evenement> getEvenement(String searchText) {
         ObservableList<Evenement> list = FXCollections.observableArrayList();
