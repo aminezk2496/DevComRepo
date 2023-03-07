@@ -3,19 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/FrontController.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/LoginController.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/SignUp2Controller.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/GestionUtilisateurController.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/GestionGererUsersController.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/LogWithFacebookController.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/ModifierUserController.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/GestionGererReclamationController.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/Services/UtilisateurService.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/GestionCardUsersController.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/ReclamationCardController.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/ForgetPassword1.java</file>
-            <file>file:/C:/Users/Amine/Desktop/devcom/src/GUI/LogWithFacebook.fxml</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/application.css</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/LocationServices.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/FXML1.fxml</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/voiture.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/location.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/FXMLDocument.fxml</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/myConnection.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/JavaFXApplication1.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/FXML1Controller.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/VoitureServices1.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/FXMLRESERVATIONADMINController.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/IvoitureCRUD.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/FXMLRESERVATIONADMIN.fxml</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/TableColumn.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/javafxapplication1/IlocationCRUD.java</file>
+            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/JavaFXApplication1/src/VoitureServices/java.java</file>
         </group>
     </open-files>
 </project-private>

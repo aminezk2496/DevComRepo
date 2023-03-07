@@ -1,0 +1,48 @@
+.root {
+    -fx-background-color: #f0eade; /* vintage background color */
+}
+
+/* Button styles */
+.button {
+    -fx-background-color: #264653; /* classy dark blue */
+    -fx-text-fill: #f0eade; /* vintage white */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #2a9d8f; /* classy teal */
+}
+
+.button:pressed {
+    -fx-background-color: #e9c46a; /* classy gold */
+}
+
+/* Text input styles */
+.text-field {
+    -fx-background-color: #f0eade; /* vintage white */
+    -fx-border-color: #2a9d8f; /* classy teal */
+    -fx-border-radius: 5px;
+    -fx-font-size: 14px;
+}
+
+/* Tableview styles */
+.table-view {
+    -fx-background-color: #f0eade; /* vintage white */
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2a9d8f; /* classy teal */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f0eade; /* vintage white */
+}
+
+.table-row-cell {
+    -fx-background-color: #f0eade; /* vintage white */
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8edeb; /* lighter vintage background color */
+}
+

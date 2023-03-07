@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="695.0" stylesheets="@../../../../../Desktop/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXMLDocumentController">
+    <children>
+        <Button fx:id="btnAdd" layoutX="82.0" layoutY="281.0" onAction="#Add" text="ajouter" />
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Text layoutX="26.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" />
+      <TextField fx:id="txtName" layoutX="62.0" layoutY="65.0" prefHeight="25.0" prefWidth="106.0" />
+      <Text layoutX="26.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="type" />
+      <Text layoutX="29.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lieu" />
+      <Text layoutX="23.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="heure" />
+      <TextField fx:id="txtLieu" layoutX="62.0" layoutY="146.0" prefHeight="25.0" prefWidth="106.0" />
+      <TextField fx:id="txtHeure" layoutX="62.0" layoutY="191.0" prefHeight="25.0" prefWidth="106.0" />
+      <Text layoutX="9.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="telephone " />
+      <TextField fx:id="txtTel" layoutX="62.0" layoutY="233.0" prefHeight="25.0" prefWidth="106.0" />
+      <Button fx:id="btnDelete" layoutX="72.0" layoutY="366.0" onAction="#Delete" text="supprimer" />
+      <Button fx:id="btnUpdate" layoutX="78.0" layoutY="324.0" onAction="#Update" text="modifier" />
+      <TableView fx:id="table" layoutX="249.0" layoutY="93.0" prefHeight="311.0" prefWidth="341.0">
+        <columns>
+          <TableColumn fx:id="nomColmn" prefWidth="66.0" text="nom" />
+          <TableColumn fx:id="typeColmn" prefWidth="67.0" text="type" />
+            <TableColumn fx:id="lieuColmn" prefWidth="70.0" text="lieu" />
+            <TableColumn fx:id="heureColmn" prefWidth="69.0" text="heure" />
+            <TableColumn fx:id="telColmn" prefWidth="68.0" text="telephone" />
+        </columns>
+      </TableView>
+      <Text fill="#cf9c67" layoutX="237.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="reserve your ride">
+         <font>
+            <Font name="Californian FB" size="54.0" />
+         </font>
+      </Text>
+      <Text layoutX="225.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="rechercher" />
+      <TextField fx:id="txtType" layoutX="62.0" layoutY="104.0" prefHeight="25.0" prefWidth="106.0" />
+      <TextField fx:id="searchField" layoutX="302.0" layoutY="403.0" prefHeight="32.0" prefWidth="217.0" />
+      <Button fx:id="btnMail" layoutX="56.0" layoutY="404.0" onAction="#sendMail" text="PDF" />
+      <Button fx:id="btnExcel" layoutX="127.0" layoutY="404.0" onAction="#generateExcel" text="Excel" />
+    </children>
+</AnchorPane>

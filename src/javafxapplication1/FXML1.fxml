@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../../../../Desktop/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication1.FXML1Controller">
+   <children>
+      <Text layoutX="22.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="serie">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtSerie" layoutX="72.0" layoutY="114.0" prefHeight="32.0" prefWidth="128.0" />
+      <Text layoutX="13.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="marque">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtMarque" layoutX="72.0" layoutY="164.0" prefHeight="32.0" prefWidth="128.0" />
+      <Text layoutX="16.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nb_chv">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtChv" layoutX="72.0" layoutY="210.0" prefHeight="32.0" prefWidth="128.0" />
+      <Text layoutX="22.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="type">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TableView fx:id="table" layoutX="245.0" layoutY="114.0" prefHeight="200.0" prefWidth="331.0">
+        <columns>
+          <TableColumn fx:id="serieColmn" text="serie" />
+          <TableColumn fx:id="marqueColmn" prefWidth="77.0" text="marque" />
+            <TableColumn fx:id="chvColmn" prefWidth="96.0" text="nb_chv" />
+            <TableColumn fx:id="typeColmn" prefWidth="77.0" text="type" />
+        </columns>
+      </TableView>
+      <Text fill="#cd944f" layoutX="202.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VOITURES">
+         <font>
+            <Font name="Webdings" size="42.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnAdd" layoutX="53.0" layoutY="302.0" mnemonicParsing="false" onAction="#Add" text="AJOUTER" />
+      <Button fx:id="btnUpdate" layoutX="139.0" layoutY="302.0" mnemonicParsing="false" onAction="#Update" text="MODIFIER" />
+      <Button fx:id="btnDelete" layoutX="93.0" layoutY="341.0" mnemonicParsing="false" onAction="#Delete" text="SUPRIMER" />
+      <TextField fx:id="txtType" layoutX="72.0" layoutY="248.0" prefHeight="32.0" prefWidth="128.0" />
+   </children>
+</AnchorPane>
