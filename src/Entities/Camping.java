@@ -3,11 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Entities;
-import java.awt.Image;
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 
 
 /**
@@ -21,10 +17,10 @@ public class Camping {
     private String Nom,Lieux,Description;
     LocalDate date_Debut,date_Fin;
     private double Prix;
-    private Image image;
+    private String image;
     private String imageC;
 //    id_Camping, Nom, date_Debut, date_Fin, Periode, Prix, Lieux, Description
-    public Camping(int id_Camping,String Nom,LocalDate date_Debut,LocalDate date_Fin,int Periode,double Prix,String Lieux,String Description,Image image,int Nbr_PlaceC,String imageC){
+    public Camping(int id_Camping,String Nom,LocalDate date_Debut,LocalDate date_Fin,int Periode,double Prix,String Lieux,String Description,String image,int Nbr_PlaceC,String imageC){
         this.id_Camping = id_Camping;
         this.Nom=Nom;
         this.date_Debut=date_Debut;
@@ -74,7 +70,7 @@ public boolean isCheck() {
         return Nbr_PlaceC;
     }
     
-    public Image getImage(){
+    public String getImage(){
         return image;
     }
     
@@ -117,7 +113,7 @@ public boolean isCheck() {
         this.Nbr_PlaceC=Nbr_PlaceC;
     }
     
-    public void setImage (Image image){
+    public void setImage (String image){
         this.image=image;
     }
 

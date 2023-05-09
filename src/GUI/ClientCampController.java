@@ -5,6 +5,7 @@
 package GUI;
 import javafx.scene.input.KeyEvent;
 import Entities.Camping;
+import static Services.MailingN.sendFromGMail;
 import Utils.MyConnection;
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +32,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javax.mail.MessagingException;
 
 /**
  * FXML Controller class
@@ -89,7 +91,7 @@ public void search(String searchTerm) {
             String description = resultSet.getString("Description");
             LocalDate dateD =resultSet.getDate("date_Debut").toLocalDate();
             LocalDate dateF =resultSet.getDate("date_Fin").toLocalDate();
-            String imageUrl = resultSet.getString("ImageC");
+            String imageUrl = resultSet.getString("Image");
             Image image = new Image(imageUrl);
             
             // Create the product pane for each product
@@ -108,9 +110,9 @@ public void search(String searchTerm) {
             Label descriptionLabel = new Label(description);
             Button Participer =new Button("Participer");
             Participer.setOnAction(event -> {
-             String attachmentPath = "/path/to/attachment/file.pdf";
+    String attachmentPath = "/path/to/attachment/file.pdf";
     String from="rihem.drissi@esprit.tn";
-    String pass="223JFT5378";
+    String pass="qnerkiajcikwckjj";
     String[] to = {"rihem.dsi@gmail.com"};
     String subject = "Participation Mail";
     String body = "<h1> Votre Nouvelle Participation </h1> <br/> <h2><b>Camping </b></h2> "+name+"<br/> <h2><b>Montant </b></h2>"+price+"<br/> <h2><b>Date </b></h2>"+dateD;
@@ -187,7 +189,7 @@ public void search(String searchTerm) {
                 int NbrP= resultSet.getInt("Nbr_PlaceC");
                 LocalDate dateD =resultSet.getDate("date_Debut").toLocalDate();
                 LocalDate dateF =resultSet.getDate("date_Fin").toLocalDate();
-                String imageUrl = resultSet.getString("ImageC");
+                String imageUrl = resultSet.getString("Image");
                 Image image = new Image(imageUrl);
                 
                 // Create the product pane for each product
@@ -206,10 +208,11 @@ public void search(String searchTerm) {
                 Label descriptionLabel = new Label(description);
                 Button Participer =new Button("Participer");
                 Participer.setOnAction(event -> {
-                 String attachmentPath = "/path/to/attachment/file.pdf";
+   
+    String attachmentPath = "/path/to/attachment/file.pdf";
     String from="rihem.drissi@esprit.tn";
-    String pass="223JFT5378";
-    String[] to = {"rihem.dsi@gmail.com"};
+    String pass="qnerkiajcikwckjj";
+    String[] to = {"drissiaymen94@gmail.com"};
     String subject = "Participation Mail";
     String body = "<h1> Votre Nouvelle Participation </h1> <br/> <h2><b>Camping </b></h2> "+name+"<br/> <h2><b>Montant </b></h2>"+price+"<br/> <h2><b>Date </b></h2>"+dateD;
     
@@ -231,6 +234,7 @@ public void search(String searchTerm) {
                 resultGet.executeUpdate();
                 updateNb(idC,NbrP);
                            System.out.println("votre Participation a été ajouté");
+                           
                    }  catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }

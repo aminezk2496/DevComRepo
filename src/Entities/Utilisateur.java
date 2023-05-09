@@ -10,8 +10,8 @@ package Entities;
  * @author Amine
  */
 
-import org.apache.commons.codec.digest.DigestUtils;
 
+//import org.apache.commons.codec.digest.DigestUtils;
 public class Utilisateur {
     private int idUtilisateur;
     private String nomUtilisateur;
@@ -118,9 +118,9 @@ public class Utilisateur {
         this.loginUtilisateur = loginUtilisateur;
     }
 
-    public void setMot_de_passeUtilisateur(String mot_de_passeUtilisateur) {
-        this.mot_de_passeUtilisateur = DigestUtils.sha1Hex(mot_de_passeUtilisateur);
-    }
+//    public void setMot_de_passeUtilisateur(String mot_de_passeUtilisateur) {
+//        this.mot_de_passeUtilisateur = DigestUtils.sha1Hex(mot_de_passeUtilisateur);
+//    }
 
     public void setImgUtilisateur(String imgUtilisateur) {
         this.imgUtilisateur = imgUtilisateur;

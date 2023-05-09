@@ -1,18 +1,20 @@
 package Services;
 
 import Entities.Utilisateur;
-import Tools.MaConnexion;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfWriter;
+import Utils.MyConnection;
+//import com.mysql.cj.Session;
+//import Tools.MaConnexion;
+//import com.itextpdf.text.Document;
+//import com.itextpdf.text.DocumentException;
+//import com.itextpdf.text.Paragraph;
+//import com.itextpdf.text.pdf.PdfWriter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import org.apache.commons.codec.digest.DigestUtils;
+//import org.apache.commons.codec.digest.DigestUtils;
 
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+//import javax.mail.*;
+//import javax.mail.internet.InternetAddress;
+//import javax.mail.internet.MimeMessage;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -22,7 +24,7 @@ import java.util.Random;
 public class UtilisateurService<s> implements IService<Utilisateur> {
     PreparedStatement store;
     Utilisateur user = new Utilisateur();
-    Connection cnx = MaConnexion.getInstance().getCnx();
+    Connection cnx = MyConnection.getInstance().getConnexion();
     boolean existe = false;
 
 
@@ -43,7 +45,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
         return size;
     }
 
-    @Override
+//    @Override
     public void ajouter(Utilisateur utilisateur) throws SQLException {
         String query = "INSERT INTO UTILISATEUR(id_utilisateur,nom_utilisateur,prenom_utilisateur,email_utilisateur,login_utilisateur," +
                 "mdp_utilisateur,image_utilisateur,rank_utilisateur,telephone_utilisateur,adresse_utilisateur) VALUES(?,?,?,?,?,?,?,?,?,?)";
@@ -73,7 +75,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
         }
     }
 
-    @Override
+//    @Override
     public ObservableList<Utilisateur> afficher() {
         ObservableList<Utilisateur> users = FXCollections.observableArrayList();
         String query = "SELECT * FROM utilisateur";
@@ -88,7 +90,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
                 utilisateur.setPrenomUtilisateur(rs.getString("prenom_utilisateur"));
                 utilisateur.setEmailUtilisateur(rs.getString("email_utilisateur"));
                 utilisateur.setLoginUtilisateur(rs.getString("login_utilisateur"));
-                utilisateur.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
+//                utilisateur.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
                 utilisateur.setImgUtilisateur(rs.getString("image_utilisateur"));
                 utilisateur.setRankUtilisateur(rs.getInt("rank_utilisateur"));
                 utilisateur.setNumero_telephoneUtilisateur(rs.getString("telephone_utilisateur"));
@@ -114,7 +116,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
                 utilisateur.setPrenomUtilisateur(rs.getString("prenom_utilisateur"));
                 utilisateur.setEmailUtilisateur(rs.getString("email_utilisateur"));
                 utilisateur.setLoginUtilisateur(rs.getString("login_utilisateur"));
-                utilisateur.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
+//                utilisateur.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
                 utilisateur.setImgUtilisateur(rs.getString("image_utilisateur"));
                 utilisateur.setRankUtilisateur(rs.getInt("rank_utilisateur"));
                 utilisateur.setNumero_telephoneUtilisateur(rs.getString("telephone_utilisateur"));
@@ -142,7 +144,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
         }
         return null;
     }
-    @Override
+//    @Override
     public void modifier(Utilisateur utilisateur) {
         String query = "UPDATE utilisateur SET " +
                 "nom_utilisateur = '" + utilisateur.getNomUtilisateur() +
@@ -163,7 +165,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
     }
 
 
-    @Override
+//    @Override
     public void supprimer(Utilisateur utilisateur) {
         String query = "DELETE FROM utilisateur WHERE login_utilisateur = '" + utilisateur.getLoginUtilisateur() + "'";
         try {
@@ -282,7 +284,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
                 user.setPrenomUtilisateur(rs.getString("prenom_utilisateur"));
                 user.setEmailUtilisateur(rs.getString("email_utilisateur"));
                 user.setLoginUtilisateur(rs.getString("login_utilisateur"));
-                user.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
+//                user.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
                 user.setImgUtilisateur(rs.getString("image_utilisateur"));
                 user.setRankUtilisateur(rs.getInt("rank_utilisateur"));
                 user.setNumero_telephoneUtilisateur(rs.getString("telephone_utilisateur"));
@@ -308,7 +310,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
                 user.setPrenomUtilisateur(rs.getString("prenom_utilisateur"));
                 user.setEmailUtilisateur(rs.getString("email_utilisateur"));
                 user.setLoginUtilisateur(rs.getString("login_utilisateur"));
-                user.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
+//                user.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
                 user.setImgUtilisateur(rs.getString("image_utilisateur"));
                 user.setRankUtilisateur(rs.getInt("rank_utilisateur"));
                 user.setNumero_telephoneUtilisateur(rs.getString("telephone_utilisateur"));
@@ -334,7 +336,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
                 user.setPrenomUtilisateur(rs.getString("prenom_utilisateur"));
                 user.setEmailUtilisateur(rs.getString("email_utilisateur"));
                 user.setLoginUtilisateur(rs.getString("login_utilisateur"));
-                user.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
+//                user.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
                 user.setImgUtilisateur(rs.getString("image_utilisateur"));
                 user.setRankUtilisateur(rs.getInt("rank_utilisateur"));
                 user.setNumero_telephoneUtilisateur(rs.getString("telephone_utilisateur"));
@@ -363,57 +365,57 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
             properties.put("mail.smtp.starttls.enable", "true");
             properties.put("mail.smtp.host", "smtp.gmail.com");
             properties.put("mail.smtp.port", "587");
-            Session session=Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
-                        protected PasswordAuthentication getPasswordAuthentication()
-                        {
-                            return new PasswordAuthentication(from,password);
-                        }
-                    }
-            );
-            try {
-                MimeMessage m =new MimeMessage(session);
-                m.setFrom(from);
-                m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-                m.setSubject(sub);
-                m.setText(content);
-                Transport.send(m);
-                return true;
-
-            } catch (MessagingException e) {
-                e.printStackTrace();
-            }
-        }else
-        {
-            System.out.println(u);
-            sub="Réinitialisation du mot de passe de votre compte ";
-            content="Bonjour"+u.getPrenomUtilisateur()+".\n \n Avez-vous oublié votre mot de passe \n \n Taper ce code dans l'application =  " +code+" \n \n" +
-                    "Si vous ne souhaitez pas changer votre mot de passe ou si vous ne l’avez pas demandé, veuillez ignorer et supprimer ce message. \n \n" +
-                    "Cordialement,\n \n " +
-                    "L’équipe PiDevers ";
-            Properties properties = new Properties();
-            properties.put("mail.smtp.auth", "true");
-            properties.put("mail.smtp.starttls.enable", "true");
-            properties.put("mail.smtp.host", "smtp.gmail.com");
-            properties.put("mail.smtp.port", "587");
-            Session session=Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
-                        protected PasswordAuthentication getPasswordAuthentication()
-                        {
-                            return new PasswordAuthentication(from,password);
-                        }
-                    }
-            );
-            try {
-                MimeMessage m =new MimeMessage(session);
-                m.setFrom(from);
-                m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-                m.setSubject(sub);
-                m.setText(content);
-                Transport.send(m);
-                return true;
-
-            } catch (MessagingException e) {
-                e.printStackTrace();
-            }
+//            Session session=Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+//                        protected PasswordAuthentication getPasswordAuthentication()
+//                        {
+//                            return new PasswordAuthentication(from,password);
+//                        }
+//                    }
+//            );
+//            try {
+//                MimeMessage m =new MimeMessage(session);
+//                m.setFrom(from);
+//                m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+//                m.setSubject(sub);
+//                m.setText(content);
+//                Transport.send(m);
+//                return true;
+//
+//            } catch (MessagingException e) {
+//                e.printStackTrace();
+//            }
+//        }else
+//        {
+//            System.out.println(u);
+//            sub="Réinitialisation du mot de passe de votre compte ";
+//            content="Bonjour"+u.getPrenomUtilisateur()+".\n \n Avez-vous oublié votre mot de passe \n \n Taper ce code dans l'application =  " +code+" \n \n" +
+//                    "Si vous ne souhaitez pas changer votre mot de passe ou si vous ne l’avez pas demandé, veuillez ignorer et supprimer ce message. \n \n" +
+//                    "Cordialement,\n \n " +
+//                    "L’équipe PiDevers ";
+//            Properties properties = new Properties();
+//            properties.put("mail.smtp.auth", "true");
+//            properties.put("mail.smtp.starttls.enable", "true");
+//            properties.put("mail.smtp.host", "smtp.gmail.com");
+//            properties.put("mail.smtp.port", "587");
+//            Session session=Session.getDefaultInstance(properties,new javax.mail.Authenticator() {
+//                        protected PasswordAuthentication getPasswordAuthentication()
+//                        {
+//                            return new PasswordAuthentication(from,password);
+//                        }
+//                    }
+//            );
+//            try {
+//                MimeMessage m =new MimeMessage(session);
+//                m.setFrom(from);
+//                m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+//                m.setSubject(sub);
+//                m.setText(content);
+//                Transport.send(m);
+//                return true;
+//
+//            } catch (MessagingException e) {
+//                e.printStackTrace();
+//            }
         }
 
         return false;
@@ -449,7 +451,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
                 "', prenom_utilisateur = '" + user.getPrenomUtilisateur() +
                 "', email_utilisateur = '" + user.getEmailUtilisateur() +
                 "', login_utilisateur = '" + user.getLoginUtilisateur() +
-                "', mdp_utilisateur= '" + DigestUtils.sha1Hex(mdp) +
+//                "', mdp_utilisateur= '" + DigestUtils.sha1Hex(mdp) +
                 "', rank_utilisateur = '" + user.getRankUtilisateur() +
                 "', telephone_utilisateur = '" + user.getNumero_telephoneUtilisateur() +
                 "', adresse_utilisateur = '" + user.getAdresseUtilisateur() +
@@ -478,7 +480,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
                 utilisateur.setPrenomUtilisateur(rs.getString("prenom_utilisateur"));
                 utilisateur.setEmailUtilisateur(rs.getString("email_utilisateur"));
                 utilisateur.setLoginUtilisateur(rs.getString("login_utilisateur"));
-                utilisateur.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
+//                utilisateur.setMot_de_passeUtilisateur(rs.getString("mdp_utilisateur"));
                 utilisateur.setImgUtilisateur(rs.getString("image_utilisateur"));
                 utilisateur.setRankUtilisateur(rs.getInt("rank_utilisateur"));
                 utilisateur.setNumero_telephoneUtilisateur(rs.getString("telephone_utilisateur"));
@@ -491,7 +493,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
         return users;
     }
 
-  public void pdfUtilisateurs() throws FileNotFoundException, DocumentException {
+  /*public void pdfUtilisateurs() throws FileNotFoundException, DocumentException {
         try {
 
             String file_name="C:\\xampp\\htdocs\\nosUtilisateurs.pdf";
@@ -518,7 +520,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
                         rs.getString("prenom_utilisateur")+"                      " +rs.getString("telephone_utilisateur")+"                     "+rs.getString("email_utilisateur")
                 );
                /* para.setSpacingBefore(15);
-                para.setSpacingAfter(15);*/
+                para.setSpacingAfter(15);
                 doc.add(para);
                 doc.add(new Paragraph(" "));
             }
@@ -527,7 +529,7 @@ public class UtilisateurService<s> implements IService<Utilisateur> {
         }catch(Exception k){
             System.err.println(k);
         }
-    }
+    }*/
 }
 
 

@@ -47,6 +47,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -150,20 +151,10 @@ public class CampingController implements Initializable {
     private Button insertImageButton;
     
     ObservableList<String> ListD = FXCollections.observableArrayList("Bizerte","AinDrahem", "Nabeul","Beja","Klibia","Touzer","Gafsa","Mahdia","Haouaria","Tabarka");
-//       public LocalDate convertToLocalDateViaMilisecond(Date dateToConvert) {
-//    return Instant.ofEpochMilli(dateToConvert.getTime())
-//      .atZone(ZoneId.systemDefault())
-//      .toLocalDate();
-//}
 
 
-   /* @FXML
-    void AjouterCamp(ActionEvent event) {
 
-    }*/
-
-    //Camping camp = new Camping() ;
-    //CampingCRUD serv = new CampingCRUD();
+   
     /**
      * Initializes the controller class.
      * @param url
@@ -173,8 +164,6 @@ public class CampingController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         showCamping();
-//        ObservableList<String> List2 = FXCollections.observableArrayList("Binzart","Ain Drahem","Mahdia","");
-//        comboLieux.setItems(List2);
             lieux.setItems(ListD);
     }
     int myIndex;
@@ -234,12 +223,7 @@ public class CampingController implements Initializable {
                            description.setText(tableC.getItems().get(myIndex).getDescription());
                        date_debut.setValue(tableC.getItems().get(myIndex).getDate_Debut());
 		           date_Fin.setValue(tableC.getItems().get(myIndex).getDate_Fin());
-                          System.out.println(tableC.getItems().get(myIndex).getDescription());
-//                          date_debut.setValue(tableC.getItems().get(myIndex).getDate_Fin().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-//                          date_Fin.setValue(tableC.getItems().get(myIndex).getDate_Debut().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-                           
-                         
-                           
+                          System.out.println(tableC.getItems().get(myIndex).getDescription());     
 
 		        }
 		     });
@@ -258,7 +242,6 @@ public class CampingController implements Initializable {
         String Lieux = (String) lieux.getValue();
         String Description = description.getText();       
         String NbrPlace= NbrP.getText();
-       // String Lieux = comboLieux.getSelectionModel().getSelectedItem().toString();
 
         if (Nom.isEmpty() || date_d.isEmpty() || date_f.isEmpty() || Periode.isEmpty() || prix.isEmpty() || Lieux.isEmpty() || Description.isEmpty() || selectedImage.isEmpty() || NbrPlace.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -279,7 +262,8 @@ public class CampingController implements Initializable {
 //        byte[] imageData = Files.readAllBytes(imageFile.toPath());
                 File file = new File(selectedImage);
 byte[] imageBytes = new byte[(int) file.length()];
-
+//String relativePath = selectedImage.substring(selectedImage.indexOf("Camp/"));
+String relativePath = selectedImage.substring(selectedImage.indexOf("devcomimgupload") + "devcomimgupload".length());
 try (FileInputStream fileInputStream = new FileInputStream(file)) {
     fileInputStream.read(imageBytes);
 } catch (IOException e) {
@@ -296,18 +280,16 @@ try (FileInputStream fileInputStream = new FileInputStream(file)) {
                 pst.setDouble(5, Double.parseDouble(Prix.getText()));
                 pst.setString(6, (String) lieux.getValue());
                 pst.setString(7, description.getText());
-                    
 //              FileInputStream fis = new FileInputStream(imageFile);
-                pst.setBytes(10, imageBytes);
-                pst.setString(8, "file:/" +selectedImage);
+                pst.setString(10, "file:/" +selectedImage);
                 pst.setInt(9, Integer.parseInt(NbrP.getText()));
-
+                pst.setString(8, relativePath);
 
                 pst.executeUpdate();
                 showCamping();
-//         Alert alert = new Alert(AlertType.INFORMATION);
-//        alert.setContentText("produit ajouté !");
-//        alert.showAndWait();
+                 Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setContentText("produit ajouté !");
+                alert.showAndWait();
                 
                 
         } catch (SQLException ex) {
@@ -327,8 +309,14 @@ try (FileInputStream fileInputStream = new FileInputStream(file)) {
     
 public void delete() {
         String delete = "DELETE FROM camping where id_Camping = ?";
-        try {
-            PreparedStatement st = new MyConnection().cnx.prepareStatement(delete);
+        String deleteParticipation = "DELETE FROM participation WHERE id_Camp = ?";
+    try {
+        // Supprimer d'abord les entrées de la table "participation"
+        PreparedStatement stParticipation = new MyConnection().cnx.prepareStatement(deleteParticipation);
+        stParticipation.setInt(1, Integer.parseInt(idC.getText()));
+        stParticipation.executeUpdate();
+        
+        PreparedStatement st = new MyConnection().cnx.prepareStatement(delete);
             st.setInt(1, Integer.parseInt(idC.getText()));
             st.executeUpdate();
             showCamping();
@@ -338,17 +326,12 @@ public void delete() {
     }
  
     private void update() {
-        String update= "UPDATE camping SET Nom=?, date_Debut=?, date_Fin=?, Periode=?, Prix=?, Lieux=?, Description=?,ImageC=?,Nbr_PlaceC=? "
+        String update= "UPDATE camping SET Nom=?, date_Debut=?, date_Fin=?, Periode=?, Prix=?, Lieux=?, Description=?,ImageC=?,Nbr_PlaceC=?,Image=? "
                     + "WHERE id_Camping=" + Integer.parseInt(idC.getText());
-//        File file = new File(selectedImage);
-//byte[] imageBytes = new byte[(int) file.length()];
-//
-//try (FileInputStream fileInputStream = new FileInputStream(file)) {
-//    fileInputStream.read(imageBytes);
-//} catch (IOException e) {
-//    e.printStackTrace();
-//    System.out.println(file.getAbsolutePath());
-//}
+         String updateparti= "UPDATE participation SET Montant=?, Nom=? "
+                    + "WHERE id_Camp=" + Integer.parseInt(idC.getText());
+String relativePath = selectedImage.substring(selectedImage.indexOf("devcomimgupload") + "devcomimgupload".length());
+
         try {
             PreparedStatement st = new MyConnection().cnx.prepareStatement(update);
             st.setString(1, nom.getText());
@@ -359,13 +342,22 @@ public void delete() {
             st.setString(6, (String) lieux.getValue());
             st.setString(7, description.getText());
             st.setInt(9, Integer.parseInt(NbrP.getText()));
-            st.setString(8, "file:/" +selectedImage);
+            st.setString(10, "file:/" +selectedImage);
+            st.setString(8, relativePath);
             st.executeUpdate();
             showCamping();
         } catch (SQLException ex) {
              System.err.println(ex.getMessage());
         }
-    }
+        try {
+            PreparedStatement stParticipation = new MyConnection().cnx.prepareStatement(updateparti);
+            stParticipation.setDouble(1, Double.parseDouble(Prix.getText()));
+            stParticipation.setString(2, nom.getText());
+            stParticipation.executeUpdate();
+     } catch (SQLException ex) {
+             System.err.println(ex.getMessage());
+        }
+        }
  
     void clear() {
         idC.setText(null);

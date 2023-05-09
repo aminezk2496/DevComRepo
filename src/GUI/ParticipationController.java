@@ -69,6 +69,7 @@ public class ParticipationController implements Initializable {
 //        UtilisateurService us =new UtilisateurService();
 //        user = (Utilisateur) UserSession.INSTANCE.get("user");
 //        int idUser=user.getIdUtilisateur();
+                /*Na7i el comment*/
 
         ObservableList<Participation> Participation = FXCollections.observableArrayList();
         

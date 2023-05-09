@@ -6,6 +6,7 @@ package GUI;
 
 import Entities.Randonnee;
 import Entities.Utilisateur;
+import static Services.MailingN.sendFromGMail;
 import Services.UtilisateurService;
 import Services.UserSession;
 import Utils.MyConnection;
@@ -90,6 +91,7 @@ public void search(String searchTerm) {
             Double price = resultSet.getDouble("Prix");
             String Lieux = resultSet.getString("Lieux");
             String description = resultSet.getString("Programme");
+            LocalDate dateD =resultSet.getDate("Date_Rand").toLocalDate();
             LocalDate date =resultSet.getDate("Date_Rand").toLocalDate();
             String imageUrl = resultSet.getString("ImagesR");
             int NbrP= resultSet.getInt("Nbr_PlaceR");
@@ -109,12 +111,12 @@ public void search(String searchTerm) {
             Label dateLabel = new Label(String.valueOf(date));
             Button Participer =new Button("Participer");
             Participer.setOnAction(event -> {
-               String attachmentPath = "/path/to/attachment/file.pdf";
+    String attachmentPath = "/path/to/attachment/file.pdf";
     String from="rihem.drissi@esprit.tn";
-    String pass="223JFT5378";
-    String[] to = {"rihem.dsi@gmail.com"};
+    String pass="qnerkiajcikwckjj";
+    String[] to = {"khemaiesdrissi@yahoo.fr"};
     String subject = "Participation Mail";
-    String body = "<h1> Votre Nouvelle Participation </h1> <br/> <h2><b>Camping </b></h2> "+name+"<br/> <h2><b>Montant </b></h2>"+price+"<br/> <h2><b>Date </b></h2>"+date;
+    String body = "<h1> Votre Nouvelle Participation </h1> <br/> <h2><b>Randonnee</b></h2> "+name+"<br/> <h2><b>Montant </b></h2>"+price+"<br/> <h2><b>Date </b></h2>"+dateD;
     
     sendFromGMail(from, pass, to, subject, body);
                 // Enregistrement de la participation dans la base de données
@@ -182,6 +184,7 @@ public void search(String searchTerm) {
                 String name = resultSet.getString("Nom");
                 Double price = resultSet.getDouble("Prix");
                 String description = resultSet.getString("Programme");
+                LocalDate dateD =resultSet.getDate("Date_Rand").toLocalDate();
                 LocalDate date =resultSet.getDate("Date_Rand").toLocalDate();
                 String Lieux = resultSet.getString("Lieux");
                 int NbrP= resultSet.getInt("Nbr_PlaceR");
@@ -202,12 +205,12 @@ public void search(String searchTerm) {
                 Label descriptionLabel = new Label(description);
                 Button Participer =new Button("Participer");
                 Participer.setOnAction(event -> {
-                     String attachmentPath = "/path/to/attachment/file.pdf";
+                    String attachmentPath = "/path/to/attachment/file.pdf";
     String from="rihem.drissi@esprit.tn";
-    String pass="223JFT5378";
-    String[] to = {"rihem.dsi@gmail.com"};
+    String pass="qnerkiajcikwckjj";
+    String[] to = {"khemaiesdrissi@yahoo.fr"};
     String subject = "Participation Mail";
-    String body = "<h1> Votre Nouvelle Participation </h1> <br/> <h2><b>Camping </b></h2> "+name+"<br/> <h2><b>Montant </b></h2>"+price+"<br/> <h2><b>Date </b></h2>"+date;
+    String body = "<h1> Votre Nouvelle Participation</h1> <br/> <h2><b>Randonnee</b></h2> "+name+"<br/> <h2><b>Montant </b></h2>"+price+"<br/> <h2><b>Date </b></h2>"+dateD;
     
     sendFromGMail(from, pass, to, subject, body);
                     // Enregistrement de la participation dans la base de données

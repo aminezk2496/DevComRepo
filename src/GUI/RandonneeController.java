@@ -42,6 +42,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -136,18 +137,6 @@ public class RandonneeController implements Initializable {
     }    
     
     @FXML
-//    private void tablehandleButtonAction(MouseEvent event) {
-//        TableViewSelectionModel selectionModel =tableR.getSelectionModel();
-//        Randonnee rd = tableR.getSelectionModel().getSelectedItem();
-//        idR.setText(String.valueOf(rd.getId_Randonnee()));
-//        nom.setText(rd.getNom());
-//        date_Rand.setValue(rd.getDate_Rand().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
-//        niceau_Diff.setText(rd.getNiveau_diff());
-//        prix.setText(String.valueOf(rd.getPrix()));
-//        lieux.setText(rd.getLieux());
-//        programme.setText(rd.getProgramme());
-//        Add.setDisable(true);
-//    }
     public ObservableList<Randonnee> getRandonnee(){
         ObservableList<Randonnee> randonnee = FXCollections.observableArrayList();
         String query = "SELECT * FROM randonnee";
@@ -166,6 +155,8 @@ public class RandonneeController implements Initializable {
             RD.setProgramme(res.getString("Programme"));
             RD.setNbr_PlaceR(res.getInt("Nbr_PlaceR"));
             RD.setImageR(res.getString("ImagesR"));
+            System.out.println(res.getString("ImagesR"));
+            String img = res.getString("ImagesR");
             randonnee.add(RD);
         }
        } catch(SQLException e){
@@ -185,6 +176,8 @@ public class RandonneeController implements Initializable {
         clProgramme.setCellValueFactory(new PropertyValueFactory<>("Programme"));
         clNbrP.setCellValueFactory(new PropertyValueFactory<>("Nbr_PlaceR"));
         clImage.setCellValueFactory(new PropertyValueFactory<>("ImagesR"));
+    
+        System.out.println(clImage);
           tableR.setRowFactory( tv -> {
 		     TableRow<Randonnee> myRow = new TableRow<>();
 		     myRow.setOnMouseClicked (event -> 
@@ -201,7 +194,7 @@ public class RandonneeController implements Initializable {
                            date_Rand.setValue(tableR.getItems().get(myIndex).getDate_Rand());
                            programme.setText(tableR.getItems().get(myIndex).getProgramme());
                          NbrP.setText(String.valueOf(tableR.getItems().get(myIndex).getNbr_PlaceR()));
-                           
+                           selectedImage=String.valueOf(tableR.getItems().get(myIndex).getImageR());
 
 		        }
 		     });
@@ -264,6 +257,7 @@ try (FileInputStream fileInputStream = new FileInputStream(file)) {
                 alert.showAndWait();
                 
                 
+                
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -278,7 +272,12 @@ try (FileInputStream fileInputStream = new FileInputStream(file)) {
     
 public void delete() {
         String delete = "DELETE FROM randonnee where id_Randonnee = ?";
-        try {
+        String deleteParticipation = "DELETE FROM participation WHERE id_Rand = ?";
+    try {
+        // Supprimer d'abord les entrées de la table "participation"
+        PreparedStatement stParticipation = new MyConnection().cnx.prepareStatement(deleteParticipation);
+        stParticipation.setInt(1, Integer.parseInt(idR.getText()));
+        stParticipation.executeUpdate();
             PreparedStatement st = new MyConnection().cnx.prepareStatement(delete);
             st.setInt(1, Integer.parseInt(idR.getText()));
             st.executeUpdate();
@@ -291,15 +290,15 @@ public void delete() {
     private void update() {
         String update= "UPDATE randonnee SET Nom=?, Date_Rand=?, Lieux=?, Prix=?, Niveau_diff=?, Programme=?,ImagesR=?,Nbr_PlaceR=? "
                     + "WHERE id_Randonnee="+Integer.parseInt(idR.getText());
-        File file = new File(selectedImage);
-byte[] imageBytes = new byte[(int) file.length()];
-
-try (FileInputStream fileInputStream = new FileInputStream(file)) {
-    fileInputStream.read(imageBytes);
-} catch (IOException e) {
-    e.printStackTrace();
-    System.out.println(file.getAbsolutePath());
-}
+//        File file = new File(selectedImage);
+//byte[] imageBytes = new byte[(int) file.length()];
+//
+//try (FileInputStream fileInputStream = new FileInputStream(file)) {
+//    fileInputStream.read(imageBytes);
+//} catch (IOException e) {
+//    e.printStackTrace();
+//    System.out.println(file.getAbsolutePath());
+//}
         try {
             PreparedStatement st = new MyConnection().cnx.prepareStatement(update);
             st.setString(1, nom.getText());
@@ -328,11 +327,7 @@ try (FileInputStream fileInputStream = new FileInputStream(file)) {
         NbrP.setText(null);
     }
  
-//    @FXML
-//    private void saveEvent(ActionEvent event) {
-//        insert();
-//        clear();
-//    }
+
     public String selectedImage;
     @FXML
      void insertImageAction(ActionEvent event) {
